@@ -7,7 +7,7 @@ def divisors(n):
     return {1, n}
 
 def d(n):
-    return sum(divisors(n) ^ {n})
+    return sum(divisors(n) - {n})
 
 def isAmicable(n):
     return d(n) != n and d(d(n)) == n
