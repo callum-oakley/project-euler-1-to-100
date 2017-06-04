@@ -15,4 +15,4 @@ def prime(n):
         bound = ceil((n + 1) * (log(n + 1) + log(log(n + 1))))
     return list(primes(bound))[n]
 
-# prime(10000) = 104743
+# prime(10000) == 104743

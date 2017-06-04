@@ -6,4 +6,4 @@ def smallestMultiple(divisors):
         candidate *= divisor // gcd(candidate, divisor)
     return candidate
 
-# smallestMultiple(range(1, 21)) = 232792560
+# smallestMultiple(range(1, 21)) == 232792560
