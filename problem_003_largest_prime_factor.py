@@ -7,6 +7,6 @@ def primeFactors(n):
         divisor += 1
 
 def answer(n):
-    return max(f for f in primeFactors(n))
+    return max(primeFactors(n))
 
 # answer(600851475143) = 6857
