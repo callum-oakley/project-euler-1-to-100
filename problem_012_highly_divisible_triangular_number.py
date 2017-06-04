@@ -5,11 +5,14 @@ def triangulars():
         n += 1
 
 def divisors(n):
-    k = 1
-    while k ** 2 < n:
+    k = 2
+    while k ** 2 <= n:
         if n % k == 0:
-            yield from (k, n // k)
+            return {
+                a for b in divisors(n // k) for a in (b, k * b)
+            }
         k += 1
+    return {1, n}
 
 def highlyDivisible(n):
     return next(t for t in triangulars() if len(list(divisors(t))) > n)
