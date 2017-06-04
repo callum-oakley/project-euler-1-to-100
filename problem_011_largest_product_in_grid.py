@@ -1,10 +1,13 @@
-from functools import reduce
-from operator import mul
+def product(xs):
+    result = 1
+    for x in xs:
+        result *= x
+    return result
 
 def adjacentProducts(grid):
     indices = {(x, y) for x in range(len(grid)) for y in range(len(grid[0]))}
     return (
-        reduce(mul, (grid[x + k * dx][y + k * dy] for k in range(4)))
+        product(grid[x + k * dx][y + k * dy] for k in range(4))
         for x, y in indices
         for dx, dy in ((1, 0), (0, 1), (1, 1), (1, -1))
         if (x + 3 * dx, y + 3 * dy) in indices
