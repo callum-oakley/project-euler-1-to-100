@@ -4,7 +4,7 @@ def fibonacci(bound):
         yield b
         a, b = b, a + b
 
-def answer(n):
+def sumOfEven(n):
     return sum(f for f in fibonacci(n) if f % 2 == 0)
 
-# answer(4 * 10**6) = 4613732
+# sumOfEven(4 * 10**6) = 4613732
