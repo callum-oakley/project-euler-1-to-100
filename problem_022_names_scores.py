@@ -9,4 +9,4 @@ def score(names):
         for i, name in enumerate(names, 1)
     )
 
-# score(sorted(parse("data_022"))) == 871198282
+print(score(sorted(parse("data_022")))) # 871198282

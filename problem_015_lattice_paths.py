@@ -9,4 +9,4 @@ from math import factorial
 def choose(n, k):
     return factorial(n) // (factorial(k) * factorial(n - k))
 
-# choose(40, 20) == 137846528820
+print(choose(40, 20)) # 137846528820

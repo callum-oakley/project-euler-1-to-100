@@ -9,4 +9,4 @@ def primeFactors(n):
 def largestPrimeFactor(n):
     return max(primeFactors(n))
 
-# largestPrimeFactor(600851475143) == 6857
+print(largestPrimeFactor(600851475143)) # 6857

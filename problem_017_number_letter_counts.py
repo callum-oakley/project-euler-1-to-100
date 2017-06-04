@@ -22,4 +22,4 @@ def sayAll(n):
         all += words
     return all
 
-# len(sayAll(1000)) == 21124
+print(len(sayAll(1000))) # 21124

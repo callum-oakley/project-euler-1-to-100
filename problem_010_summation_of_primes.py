@@ -5,4 +5,4 @@ def primes(n):
             yield i
             candidates -= set(range(i, n, i))
 
-# sum(primes(2 * 10 ** 6)) == 142913828922
+print(sum(primes(2 * 10 ** 6))) # 142913828922

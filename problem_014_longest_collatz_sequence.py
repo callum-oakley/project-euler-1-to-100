@@ -8,4 +8,4 @@ def collatzLength(n):
         return 1 + collatzLength(n // 2)
     return 1 + collatzLength(3 * n + 1)
 
-# max((n for n in range(1, 10 ** 6)), key=collatzLength) == 837799
+print(max((n for n in range(1, 10 ** 6)), key=collatzLength)) # 837799

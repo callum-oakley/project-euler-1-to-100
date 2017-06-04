@@ -6,5 +6,5 @@ def specialTriplet(n):
             if c >= b and a ** 2 + b ** 2 == c ** 2:
                 return (a, b, c)
 
-# a, b, c = specialTriplet(1000)
-# a * b * c == 31875000
+a, b, c = specialTriplet(1000)
+print(a * b * c) # 31875000

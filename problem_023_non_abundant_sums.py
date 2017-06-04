@@ -13,4 +13,4 @@ def abundantSums(bound):
     abundants = list(n for n in range(1, bound) if isAbundant(n))
     return {a + b for a in abundants for b in abundants}
 
-# sum(set(range(1, 28124)) - abundantSums(28124)) == 4179871
+print(sum(set(range(1, 28124)) - abundantSums(28124))) # 4179871

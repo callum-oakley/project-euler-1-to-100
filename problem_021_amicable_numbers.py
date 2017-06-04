@@ -12,4 +12,4 @@ def d(n):
 def isAmicable(n):
     return d(n) != n and d(d(n)) == n
 
-# sum(n for n in range(1, 10000) if isAmicable(n)) == 31626
+print(sum(n for n in range(2, 10000) if isAmicable(n))) # 31626

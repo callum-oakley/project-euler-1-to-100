@@ -8,4 +8,4 @@ def countSundays(dateFrom, dateTo):
         d += timedelta(1)
     return sundays
 
-print(countSundays(date(1901, 1, 1), date(2000, 12, 31)))
+print(countSundays(date(1901, 1, 1), date(2000, 12, 31))) # 171

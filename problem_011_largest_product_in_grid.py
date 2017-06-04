@@ -19,4 +19,4 @@ def parse(fileName):
         for line in open(fileName).read().splitlines()
     ]
 
-# max(adjacentProducts(parse("data_011"))) == 70600674
+print(max(adjacentProducts(parse("data_011")))) # 70600674

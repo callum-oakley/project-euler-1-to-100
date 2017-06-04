@@ -15,4 +15,4 @@ def divisors(n):
 def highlyDivisible(n):
     return next(t for t in triangulars() if len(list(divisors(t))) > n)
 
-# highlyDivisible(500) == 76576500
+print(highlyDivisible(500)) # 76576500

@@ -8,4 +8,4 @@ def adjacentProducts(digits, n):
 def parse(fileName):
     return open(fileName).read().replace("\n", "")
 
-# max(adjacentProducts(parse("data_008"), 13)) == 23514624000
+print(max(adjacentProducts(parse("data_008"), 13))) # 23514624000
