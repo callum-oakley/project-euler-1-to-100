@@ -8,9 +8,7 @@ def divisors(n):
     k = 2
     while k ** 2 <= n:
         if n % k == 0:
-            return {
-                a for b in divisors(n // k) for a in (b, k * b)
-            }
+            return {a for b in divisors(n // k) for a in (b, k * b)}
         k += 1
     return {1, n}
 
