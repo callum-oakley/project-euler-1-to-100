@@ -1,7 +1,7 @@
 from math import factorial
 
 def permute(xs, n):
-    if len(xs) == 1:
+    if len(xs) == 0:
         return xs
     granularity = factorial(len(xs) - 1)
     i = n // granularity
