@@ -1,4 +1,5 @@
-def sumOfMultiples(factors, n):
-    return sum(x for x in range(n) if any(x % f == 0 for f in factors))
+# sum of every multiple of k from 0 to n inclusive
+def closedSum(n, k):
+    return k * (n // k) * (n // k + 1) // 2
 
-print(sumOfMultiples({3, 5}, 1000)) # 233168
+print(closedSum(999, 3) + closedSum(999, 5) - closedSum(999, 15)) # 233168
