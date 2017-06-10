@@ -9,8 +9,7 @@ def cancelDigit(a_b, d):
     return (int(str(a).replace(d, "", 1)), int(str(b).replace(d, "", 1)))
 
 digitCancellingFractions = (
-    (a, b)
-    for b in range(11, 100) for a in range(10, b)
+    (a, b) for b in range(11, 100) for a in range(10, b)
     if a % 10 != 0 and b % 10 != 0
     for commonDigit in {d for d in str(a) if d in str(b)}
     if simplify(cancelDigit((a, b), commonDigit)) == simplify((a, b))
