@@ -5,7 +5,7 @@ from functools import lru_cache
 def isPrime(n):
     if n <= 1:
         return False
-    for divisor in range(2, ceil(sqrt(n))):
+    for divisor in range(2, ceil(sqrt(n)) + 1):
         if n % divisor == 0:
             return False
     return True
