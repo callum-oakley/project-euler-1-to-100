@@ -1,27 +1,28 @@
-from math import factorial
+def isPandigitalish(s):
+    return len({d for d in s}) == len(s)
 
-def permute(xs, n):
-    if len(xs) == 0:
-        return xs
-    granularity = factorial(len(xs) - 1)
-    i = n // granularity
-    return xs[i] + permute(xs[:i] + xs[i + 1:], n - i * granularity)
+def assemble(slices):
+    return "".join(s[0] for s in slices) + slices[-1][1:]
 
-def permutations(s):
-    return (permute(s, n) for n in range(factorial(len(s))))
+def isValid(slices):
+    return all(
+        slices[i][1:] == slices[i + 1][:2]
+        for i in range(len(slices) - 1)
+    ) and isPandigitalish(assemble(slices))
 
-def isSubStringDivisible(s):
-    return all([
-        int(s[1:4]) % 2 == 0,
-        int(s[2:5]) % 3 == 0,
-        int(s[3:6]) % 5 == 0,
-        int(s[4:7]) % 7 == 0,
-        int(s[5:8]) % 11 == 0,
-        int(s[6:9]) % 13 == 0,
-        int(s[7:10]) % 17 == 0
-    ])
+def substringDivisiblePandigitals():
+    divisors = [1, 2, 3, 5, 7, 11, 13, 17]
+    slices = ["000" for _ in divisors]
+    head = len(slices) - 1
+    while head < len(slices):
+        slices[head] = str(int(slices[head]) + divisors[head]).zfill(3)
+        if len(slices[head]) > 3:
+            slices[head] = "000"
+            head += 1
+        elif isValid(slices[head:]):
+            if head == 0:
+                yield assemble(slices)
+            else:
+                head -= 1
 
-print(sum(
-    int(p) for p in permutations("0123456789")
-    if isSubStringDivisible(p)
-)) # 16695334890
+print(sum(int(s) for s in substringDivisiblePandigitals())) # 16695334890
