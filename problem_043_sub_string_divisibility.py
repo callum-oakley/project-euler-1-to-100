@@ -12,6 +12,9 @@ def isValid(slices):
 
 def substringDivisiblePandigitals():
     divisors = [1, 2, 3, 5, 7, 11, 13, 17]
+    # Since we know each 3 digit slice of the final solution is divisible by
+    # the above, we can search the space of possible slices, which turns out to
+    # be way faster than searching the space of 0-9-pandigitals.
     slices = ["000" for _ in divisors]
     head = len(slices) - 1
     while head < len(slices):
