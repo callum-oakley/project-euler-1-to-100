@@ -9,7 +9,7 @@ def primeGen(n):
 
 def minimumCounterexample():
     bound, composites, sums = 2, set(), set()
-    while composites - sums == set():
+    while not composites - sums:
         primes = set(primeGen(bound))
         composites = {n for n in range(2, bound) if n % 2 != 0} - primes
         sums = {
