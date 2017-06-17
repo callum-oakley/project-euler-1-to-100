@@ -7,12 +7,10 @@ def primes(n):
 
 fourDigitPrimes = {p for p in primes(10000) if p >= 1000}
 
-def isPermutation(a, b):
-    return sorted(str(a)) == sorted(str(b))
-
 def arePrimePermutations(a, b, c):
+    digits = sorted(str(a))
     return (
-        isPermutation(a, b) and isPermutation(a, c) and
+        sorted(str(b)) == digits and sorted(str(c)) == digits and
         b in fourDigitPrimes and c in fourDigitPrimes
     )
 
