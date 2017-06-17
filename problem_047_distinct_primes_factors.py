@@ -1,19 +1,3 @@
-from functools import lru_cache
-
-def infRange(n=0, step=1):
-    while True:
-        yield n
-        n += step
-
-@lru_cache(maxsize=None)
-def distinctPrimeFactors(n):
-    if n <= 1:
-        return set()
-    divisor = 2
-    while n % divisor != 0:
-        divisor += 1
-    return {divisor} | distinctPrimeFactors(n // divisor)
-
 def consecutiveRuns(ns):
     run = []
     for n in ns:
@@ -24,9 +8,25 @@ def consecutiveRuns(ns):
             run = [n]
     yield run
 
-print(next(
-    run[0] for run in consecutiveRuns(
-        n for n in infRange()
-        if len(distinctPrimeFactors(n)) == 4
-    ) if len(run) == 4
-)) # 134043
+# Based on the Sieve of Eratosthenes
+def intsByNoOfPrimeFactors(n, bound):
+    primeFactors = {i: set() for i in range(2, bound)}
+    for i in range(2, bound):
+        if not primeFactors[i]: # so i is prime
+            for j in range(2 * i, bound, i):
+                primeFactors[j].add(i)
+        if len(primeFactors[i]) == n:
+            yield i
+
+def firstRunOf(n):
+    bound = 2
+    runs = []
+    while not runs:
+        runs = [
+            run for run in consecutiveRuns(intsByNoOfPrimeFactors(n, bound))
+            if len(run) == n
+        ]
+        bound *= 2
+    return runs[0]
+
+print(firstRunOf(4)[0]) # 134043
