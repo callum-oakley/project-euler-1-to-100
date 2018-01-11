@@ -14,4 +14,4 @@ def filterTriangular(words):
 def parse(fileName):
     return json.loads("[{}]".format(open(fileName).read().strip()))
 
-print(len(list(filterTriangular(parse("data_042"))))) # 162
+print(len(list(filterTriangular(parse("data/042"))))) # 162

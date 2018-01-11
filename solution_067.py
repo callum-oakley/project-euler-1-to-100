@@ -18,4 +18,4 @@ def parse(fileName):
         for line in open(fileName).read().splitlines()
     ]
 
-print(maximumRoute(parse("data_018"))) # 1074
+print(maximumRoute(parse("data/067"))) # 7273
