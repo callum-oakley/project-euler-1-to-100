@@ -1,20 +1,27 @@
 from functools import lru_cache
 from math import ceil, sqrt, log10
+from bisect import bisect_left
 
-def primeGen(n):
+LIMIT = 10**7
+
+def prime_gen(n):
     candidates = set(range(2, n))
     for i in range(2, n):
         if i in candidates:
             yield i
             candidates -= set(range(i, n, i))
 
-limit = 10**7
-primes = [p for p in primeGen(limit)]
-primesS = {p for p in primes}
+primes = [p for p in prime_gen(LIMIT)]
 
-def isPrime(n):
-    if n < limit:
-        return n in primesS
+def in_sorted(a, x):
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return True
+    return False
+
+def is_prime(n):
+    if n < LIMIT:
+        return in_sorted(primes, n)
     for p in primes:
         if p > sqrt(n):
             return True
@@ -26,20 +33,20 @@ def concat(p, q):
     return p * 10 ** (int(log10(q)) + 1) + q
 
 @lru_cache(maxsize=None)
-def isCompatable(p, q):
-    return isPrime(concat(p, q)) and isPrime(concat(q, p))
+def is_compatable(p, q):
+    return is_prime(concat(p, q)) and is_prime(concat(q, p))
 
 candidates = (
     (primes[a], primes[b], primes[c], primes[d], primes[e])
     for a in range(len(primes))
     for b in range(a)
-    if isCompatable(primes[a], primes[b])
+    if is_compatable(primes[a], primes[b])
     for c in range(b)
-    if all(isCompatable(primes[x], primes[c]) for x in [a, b])
+    if all(is_compatable(primes[x], primes[c]) for x in [a, b])
     for d in range(c)
-    if all(isCompatable(primes[x], primes[d]) for x in [a, b, c])
+    if all(is_compatable(primes[x], primes[d]) for x in [a, b, c])
     for e in range(d)
-    if all(isCompatable(primes[x], primes[e]) for x in [a, b, c, d])
+    if all(is_compatable(primes[x], primes[e]) for x in [a, b, c, d])
 )
 
 print(sum(next(candidates)))
