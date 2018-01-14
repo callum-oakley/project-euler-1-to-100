@@ -1,7 +1,7 @@
 def powerful():
     n = 1
     while True:
-        # log10(x) < len(str(x)) for all x, so
+        # log10(x) < len(x) for all x, so
         # len(m**n) = n => log10(m**n) < n => log10(m) < 1 => m < 10
         # Furthermore, if 9**n is not long enough for some n, then it won't be
         # long enough for any greater n either, so we can stop searching.
