@@ -1,9 +1,6 @@
 from fractions import Fraction
 
-def candidates(max_d, target):
-    for d in range(1, max_d + 1):
-        f = Fraction(d * target.numerator // target.denominator, d)
-        if 0 < f < target:
-            yield f
-
-print(max(candidates(10 ** 6, Fraction(3, 7))))
+target = Fraction(3, 7)
+print(max(
+    f for f in (Fraction(d * 3 // 7, d) for d in range(1, 10 ** 6 + 1)
+) if 0 < f < target).numerator)
