@@ -29,4 +29,4 @@ def decompositions(n, max_part=inf):
         decompositions(n - m, m) for m in prime_range(1, min(max_part + 1, n))
     )
 
-print(next(n for n in inf_range() if decompositions(n) > 5000))
+print(next(n for n in inf_range() if decompositions(n) - 1 > 5000))
