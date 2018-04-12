@@ -1,9 +1,9 @@
 from math import gcd
 
-def smallestMultiple(divisors):
+def smallest_multiple(divisors):
     candidate = 1
     for divisor in divisors:
         candidate *= divisor // gcd(candidate, divisor)
     return candidate
 
-print(smallestMultiple(range(1, 21)))
+print(smallest_multiple(range(1, 21)))

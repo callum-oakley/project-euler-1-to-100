@@ -1,4 +1,4 @@
-def primeFactors(n):
+def prime_factors(n):
     divisor = 2
     while n > 1:
         while n % divisor == 0:
@@ -6,7 +6,4 @@ def primeFactors(n):
             n //= divisor
         divisor += 1
 
-def largestPrimeFactor(n):
-    return max(primeFactors(n))
-
-print(largestPrimeFactor(600851475143))
+print(max(prime_factors(600851475143)))
