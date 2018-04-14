@@ -5,4 +5,5 @@ def primes(n):
             yield i
             candidates -= set(range(i, n, i))
 
+
 print(sum(primes(2 * 10 ** 6)))

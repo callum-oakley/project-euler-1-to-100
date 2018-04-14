@@ -4,6 +4,7 @@ def triangulars():
         yield n * (n + 1) // 2
         n += 1
 
+
 def divisors(n):
     k = 2
     while k ** 2 <= n:
@@ -12,7 +13,5 @@ def divisors(n):
         k += 1
     return {1, n}
 
-def highlyDivisible(n):
-    return next(t for t in triangulars() if len(list(divisors(t))) > n)
 
-print(highlyDivisible(500))
+print(next(t for t in triangulars() if len(list(divisors(t))) > 500))

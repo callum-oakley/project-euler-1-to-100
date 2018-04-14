@@ -6,5 +6,6 @@ def special_triplet(n):
             if c >= b and a ** 2 + b ** 2 == c ** 2:
                 return (a, b, c)
 
+
 a, b, c = special_triplet(1000)
 print(a * b * c)

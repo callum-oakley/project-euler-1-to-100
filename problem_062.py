@@ -3,6 +3,7 @@ def inf_range(n=0, step=1):
         yield n
         n += step
 
+
 def search(n):
     seen = {}
     for c in (m ** 3 for m in inf_range()):
@@ -12,5 +13,6 @@ def search(n):
         seen[digits] |= {c}
         if len(seen[digits]) >= n:
             return min(seen[digits])
+
 
 print(search(5))

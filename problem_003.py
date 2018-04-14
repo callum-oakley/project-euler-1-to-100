@@ -6,4 +6,5 @@ def prime_factors(n):
             n //= divisor
         divisor += 1
 
+
 print(max(prime_factors(600851475143)))

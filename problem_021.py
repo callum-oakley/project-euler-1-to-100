@@ -6,10 +6,13 @@ def divisors(n):
         k += 1
     return {1, n}
 
+
 def d(n):
     return sum(divisors(n) - {n})
 
-def isAmicable(n):
+
+def is_amicable(n):
     return d(n) != n and d(d(n)) == n
 
-print(sum(n for n in range(2, 10000) if isAmicable(n)))
+
+print(sum(n for n in range(2, 10000) if is_amicable(n)))

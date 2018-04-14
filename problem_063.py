@@ -14,4 +14,5 @@ def powerful():
                 yield m ** n
         n += 1
 
+
 print(sum(1 for p in powerful()))

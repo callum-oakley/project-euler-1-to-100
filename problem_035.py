@@ -5,14 +5,15 @@ def primes(n):
             yield i
             candidates -= set(range(i, n, i))
 
+
 def rotations(s):
     return (s[i:] + s[:i] for i in range(1, len(s)))
 
-def circularPrimes(n):
-    ps = set(primes(n))
-    return (
-        p for p in ps
-        if all(int(r) in ps for r in rotations(str(p)))
-    )
 
-print(len(list(circularPrimes(10 ** 6))))
+def circular_primes(n):
+    ps = set(primes(n))
+    return (p for p in ps
+            if all(int(r) in ps for r in rotations(str(p))))
+
+
+print(len(list(circular_primes(10 ** 6))))

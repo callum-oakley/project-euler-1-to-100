@@ -5,22 +5,22 @@ def primes(n):
             yield i
             candidates -= set(range(i, n, i))
 
-fourDigitPrimes = {p for p in primes(10000) if p >= 1000}
 
-def arePrimePermutations(a, b, c):
+four_digit_primes = {p for p in primes(10000) if p >= 1000}
+
+
+def are_prime_permutations(a, b, c):
     digits = sorted(str(a))
-    return (
-        sorted(str(b)) == digits and sorted(str(c)) == digits and
-        b in fourDigitPrimes and c in fourDigitPrimes
-    )
+    return (sorted(str(b)) == digits and sorted(str(c)) == digits and
+            b in four_digit_primes and c in four_digit_primes)
 
-primePermutationSequences = (
+
+prime_permutation_sequences = (
     [p, p + k, p + 2 * k]
-    for p in fourDigitPrimes
+    for p in four_digit_primes
     for k in range(2, (10000 - p) // 2 + 1)
-    if arePrimePermutations(p, p + k, p + 2 * k)
-)
+    if are_prime_permutations(p, p + k, p + 2 * k))
 
 print(next(n for n in (
-    "".join(str(p) for p in s) for s in primePermutationSequences
+    "".join(str(p) for p in s) for s in prime_permutation_sequences
 ) if n != "148748178147"))

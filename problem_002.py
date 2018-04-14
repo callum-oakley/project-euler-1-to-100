@@ -5,7 +5,4 @@ def fibonacci(bound):
         a, b = b, a + b
 
 
-def sum_of_even(n):
-    return sum(f for f in fibonacci(n) if f % 2 == 0)
-
-print(sum_of_even(4 * 10 ** 6))
+print(sum(f for f in fibonacci(4 * 10 ** 6) if f % 2 == 0))

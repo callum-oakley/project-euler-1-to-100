@@ -1,8 +1,10 @@
 from math import factorial
 from functools import lru_cache
 
+
 def factorial_digit_sum(n):
     return sum(factorial(int(d)) for d in str(n))
+
 
 @lru_cache(maxsize=None)
 def chain_len(n):
@@ -14,5 +16,6 @@ def chain_len(n):
     if m == n:
         return 1
     return 1 + chain_len(m)
+
 
 print(sum(1 for n in range(10 ** 6) if chain_len(n) == 60))

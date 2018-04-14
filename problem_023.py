@@ -6,11 +6,14 @@ def divisors(n):
         k += 1
     return {1, n}
 
-def isAbundant(n):
+
+def is_abundant(n):
     return sum(divisors(n) - {n}) > n
 
-def abundantSums(bound):
-    abundants = list(n for n in range(1, bound) if isAbundant(n))
+
+def abundant_sums(bound):
+    abundants = list(n for n in range(1, bound) if is_abundant(n))
     return {a + b for a in abundants for b in abundants}
 
-print(sum(set(range(1, 28124)) - abundantSums(28124)))
+
+print(sum(set(range(1, 28124)) - abundant_sums(28124)))

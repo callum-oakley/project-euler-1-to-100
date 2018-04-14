@@ -1,19 +1,21 @@
-def genPrimes(n):
+def gen_primes(n):
     candidates = set(range(2, n))
     for i in range(2, n):
         if i in candidates:
             yield i
             candidates -= set(range(i, n, i))
 
-def longestPrimeSum(bound):
-    primes = set(genPrimes(bound))
-    primeSeq, longest = sorted(list(primes)), []
-    for i in range(len(primeSeq)):
+
+def longest_prime_sum(bound):
+    primes = set(gen_primes(bound))
+    primes_seq, longest = sorted(list(primes)), []
+    for i in range(len(primes_seq)):
         j = i + len(longest) + 1
-        while j < len(primeSeq) and sum(primeSeq[i:j]) < bound:
-            if sum(primeSeq[i:j]) in primes:
-                longest = primeSeq[i:j]
+        while j < len(primes_seq) and sum(primes_seq[i:j]) < bound:
+            if sum(primes_seq[i:j]) in primes:
+                longest = primes_seq[i:j]
             j += 1
     return longest
 
-print(sum(longestPrimeSum(10 ** 6)))
+
+print(sum(longest_prime_sum(10 ** 6)))

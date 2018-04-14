@@ -5,6 +5,7 @@ def decode(cipher, password):
         i += 1
     return result
 
+
 cipher = [int(x) for x in open("data/059").read().strip().split(",")]
 alphas = [x for x in range(ord("a"), ord("z") + 1)]
 passwords = ((a, b, c) for a in alphas for b in alphas for c in alphas)

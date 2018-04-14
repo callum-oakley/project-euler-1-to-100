@@ -1,9 +1,11 @@
-from math import sqrt, gcd
+from math import gcd
+
 
 def inf_range(n=0, step=1):
     while True:
         yield n
         n += step
+
 
 def pythagorean_triples(limit):
     for n in inf_range(1):
@@ -21,6 +23,7 @@ def pythagorean_triples(limit):
                 if a + b + c >= limit:
                     break
                 yield a, b, c
+
 
 counts = {}
 for triple in pythagorean_triples(1500000):

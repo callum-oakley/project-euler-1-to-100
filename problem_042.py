@@ -1,9 +1,11 @@
 import json
 
+
 def value(word):
     return sum(ord(c) - ord("A") + 1 for c in word)
 
-def filterTriangular(words):
+
+def filter_triangular(words):
     triangulars = {0}
     for word in words:
         while max(triangulars) < value(word):
@@ -11,7 +13,9 @@ def filterTriangular(words):
         if value(word) in triangulars:
             yield word
 
-def parse(fileName):
-    return json.loads("[{}]".format(open(fileName).read().strip()))
 
-print(len(list(filterTriangular(parse("data/042")))))
+def parse(file):
+    return json.loads("[{}]".format(open(file).read().strip()))
+
+
+print(len(list(filter_triangular(parse("data/042")))))

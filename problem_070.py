@@ -8,6 +8,7 @@
 
 LIMIT = 10 ** 7
 
+
 def prime_gen(n):
     candidates = set(range(2, n))
     for i in range(2, n):
@@ -15,12 +16,15 @@ def prime_gen(n):
             yield i
             candidates -= set(range(i, n, i))
 
+
 primes = list(prime_gen(LIMIT // 2))
+
 
 def phi(p, q):
     if p == q:
         return p * (p - 1)
     return (p - 1) * (q - 1)
+
 
 def prime_pairs():
     for p in primes:
@@ -29,11 +33,11 @@ def prime_pairs():
                 break
             yield p, q
 
+
 def permutation(x, y):
     return sorted(str(x)) == sorted(str(y))
 
-x = min(
-    ((p, q) for p, q in prime_pairs() if permutation(phi(p, q), p * q)),
-    key=lambda x: x[0] * x[1] / phi(x[0], x[1]),
-)
+
+x = min(((p, q) for p, q in prime_pairs() if permutation(phi(p, q), p * q)),
+        key=lambda x: x[0] * x[1] / phi(x[0], x[1]))
 print(x[0] * x[1])

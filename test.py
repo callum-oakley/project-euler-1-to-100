@@ -34,7 +34,7 @@ def test(answers):
         if result != answers[n] + '\n':
             ok = False
             reporter.report('WRONG: expected {} but got {} ({})'.format(
-                answers[n], result, file))
+                answers[n], result.strip(), file))
         elif elapsed > 60:
             ok = False
             reporter.report('SLOW: {} took {}s to run'.format(
