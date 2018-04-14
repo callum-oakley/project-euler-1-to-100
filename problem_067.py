@@ -17,4 +17,4 @@ def parse(file):
             for line in open(file).read().splitlines()]
 
 
-print(maximum_route(parse("data/067")))
+print(maximum_route(parse('data/067')))

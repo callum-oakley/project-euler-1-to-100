@@ -7,7 +7,7 @@ def adjacent_products(digits, n):
 
 
 def parse(file):
-    return open(file).read().replace("\n", "")
+    return open(file).read().replace('\n', '')
 
 
-print(max(adjacent_products(parse("data/008"), 13)))
+print(max(adjacent_products(parse('data/008'), 13)))

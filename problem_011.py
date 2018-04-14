@@ -18,4 +18,4 @@ def parse(file):
             for line in open(file).read().splitlines()]
 
 
-print(max(adjacent_products(parse("data/011"))))
+print(max(adjacent_products(parse('data/011'))))

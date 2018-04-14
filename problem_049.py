@@ -22,5 +22,5 @@ prime_permutation_sequences = (
     if are_prime_permutations(p, p + k, p + 2 * k))
 
 print(next(n for n in (
-    "".join(str(p) for p in s) for s in prime_permutation_sequences
-) if n != "148748178147"))
+    ''.join(str(p) for p in s) for s in prime_permutation_sequences
+) if n != '148748178147'))

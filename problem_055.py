@@ -1,5 +1,5 @@
 def reverse(n):
-    return int("".join(reversed(str(n))))
+    return int(''.join(reversed(str(n))))
 
 
 def is_lychrel(n):

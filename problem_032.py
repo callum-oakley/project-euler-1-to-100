@@ -1,5 +1,5 @@
 def is_pandigital(s):
-    return len({d for d in s} - {"0"}) == 9
+    return len({d for d in s} - {'0'}) == 9
 
 
 def are_sufficiently_small(a, b):

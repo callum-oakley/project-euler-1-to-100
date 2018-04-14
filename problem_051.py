@@ -13,15 +13,15 @@ def gen_primes(n):
 def int_to_pattern(n):
     # Each pattern is just n written in base 11
     if n == 0:
-        return ""
+        return ''
     if n % 11 == 10:
-        return int_to_pattern(n // 11) + "*"
+        return int_to_pattern(n // 11) + '*'
     return int_to_pattern(n // 11) + str(n % 11)
 
 
 def expand(pattern):
     return (
-        int(r) for r in (pattern.replace("*", str(d)) for d in range(10))
+        int(r) for r in (pattern.replace('*', str(d)) for d in range(10))
         if len(r) == len(pattern))
 
 

@@ -3,7 +3,7 @@ def is_pandigitalish(s):
 
 
 def assemble(slices):
-    return "".join(slice[0] for slice in slices) + slices[-1][1:]
+    return ''.join(slice[0] for slice in slices) + slices[-1][1:]
 
 
 def is_valid(slices):
@@ -17,11 +17,11 @@ def substring_divisible_pandigitals():
     # Since we know each 3 digit slice is divisible by each of the above in
     # turn, we can search the space of possible slices, which turns out to be
     # way faster than searching the space of 0-9-pandigitals.
-    slices, head = ["000" for _ in divisors], len(divisors) - 1
+    slices, head = ['000' for _ in divisors], len(divisors) - 1
     while head < len(slices):
         slices[head] = str(int(slices[head]) + divisors[head]).zfill(3)
         if len(slices[head]) > 3:
-            slices[head], head = "000", head + 1
+            slices[head], head = '000', head + 1
         elif head == 0 and is_valid(slices):
             yield assemble(slices)
         elif is_valid(slices[head:]):

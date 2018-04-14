@@ -31,7 +31,7 @@ def is_prime(n):
             return True
         if n % p == 0:
             return False
-    raise ValueError("ran out of small primes!")
+    raise ValueError('ran out of small primes!')
 
 
 def concat(p, q):

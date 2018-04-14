@@ -7,7 +7,7 @@ def p(n):
 
 
 def pentagonal_differences():
-    n, pentagonals, max_n, min_difference = 2, set(), 0, float("inf")
+    n, pentagonals, max_n, min_difference = 2, set(), 0, float('inf')
     # We can stop searching when the difference between each pentagonal number
     # is greater than the smallest difference we have found so far. The
     # solution as actually found very early, and most of the running time is in

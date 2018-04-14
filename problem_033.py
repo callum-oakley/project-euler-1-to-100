@@ -8,7 +8,7 @@ def simplify(a_b):
 
 def cancel_digit(a_b, d):
     a, b = a_b
-    return (int(str(a).replace(d, "", 1)), int(str(b).replace(d, "", 1)))
+    return (int(str(a).replace(d, '', 1)), int(str(b).replace(d, '', 1)))
 
 
 digit_cancelling_fractions = (

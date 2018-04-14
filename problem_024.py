@@ -9,4 +9,4 @@ def permute(xs, n):
     return xs[i] + permute(xs[:i] + xs[i + 1:], n - i * granularity)
 
 
-print(permute("0123456789", 10 ** 6 - 1))
+print(permute('0123456789', 10 ** 6 - 1))
