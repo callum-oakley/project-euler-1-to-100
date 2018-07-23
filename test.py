@@ -3,7 +3,6 @@ import os
 import re
 import sh
 import time
-import multiprocessing
 
 
 def test(file):
@@ -12,7 +11,7 @@ def test(file):
         print('\nMISSING: no test for {}'.format(file))
         return
     start = time.time()
-    result = sh.python(file)
+    result = sh.python3(file)
     elapsed = time.time() - start
     if result != answers[n] + '\n':
         print('\nWRONG: expected {} but got {} ({})'.format(
@@ -24,5 +23,8 @@ def test(file):
 
 
 answers = json.loads(open('answers.json').read())
-with multiprocessing.Pool() as p:
-    p.map(test, (f for f in os.listdir() if re.match(r'problem_\d{3}\.py', f)))
+
+
+for f in os.listdir():
+    if re.match(r'problem_\d{3}\.py', f):
+        test(f)
