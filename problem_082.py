@@ -6,35 +6,22 @@ def parse(file):
             for line in open(file).read().splitlines()]
 
 
+def in_range(x, y):
+    return 0 <= x <= n - 1 and 0 <= y <= n - 1
+
+
 @lru_cache(maxsize=None)
-def min_path(x, y, direction=None):
-    if x == 0:
-        return matrix[y][x]
-    elif y == 0:
-        # It's never beneficial to backtrack, so don't allow it (this also avoids
-        # getting stuck in a recursive loop).
-        if direction == 'down':
-            return matrix[y][x] + min_path(x - 1, y)
-        else:
-            return matrix[y][x] + min(
-                min_path(x - 1, y), min_path(x, y + 1, direction='up'))
-    elif y == n - 1:
-        if direction == 'up':
-            return matrix[y][x] + min_path(x - 1, y)
-        else:
-            return matrix[y][x] + min(
-                min_path(x - 1, y), min_path(x, y - 1, direction='down'))
-    else:
-        if direction == 'up':
-            return matrix[y][x] + min(
-                min_path(x - 1, y), min_path(x, y + 1, direction='up'))
-        elif direction == 'down':
-            return matrix[y][x] + min(
-                min_path(x - 1, y), min_path(x, y - 1, direction='down'))
-        else:
-            return matrix[y][x] + min(
-                min_path(x - 1, y), min_path(x, y - 1, direction='down'),
-                min_path(x, y + 1, direction='up'))
+def min_path(x, y, previous_position=None):
+    paths_to_here = [
+        min_path(xp, yp, previous_position=(x, y))
+        for (xp, yp) in [(x - 1, y), (x, y - 1), (x, y + 1)]
+        if (xp, yp) != previous_position and in_range(xp, yp)
+    ]
+
+    if x > 0 and len(paths_to_here) > 0:
+        return matrix[y][x] + min(paths_to_here)
+
+    return matrix[y][x]
 
 
 matrix = parse('data/082')
