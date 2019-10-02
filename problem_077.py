@@ -30,9 +30,9 @@ def inf_range(n=0, step=1):
 
 @lru_cache(maxsize=None)
 def decompositions(n, max_part=inf):
-    return ((1 if n <= max_part and n in primes else 0) +
-            sum(decompositions(n - m, m)
-                for m in prime_range(1, min(max_part + 1, n))))
+    return (1 if n <= max_part and n in primes else 0) + sum(
+        decompositions(n - m, m) for m in prime_range(1, min(max_part + 1, n))
+    )
 
 
 print(next(n for n in inf_range() if decompositions(n) - 1 > 5000))

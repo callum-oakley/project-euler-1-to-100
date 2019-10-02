@@ -13,13 +13,11 @@ def is_prime(n):
 
 
 def grow_left(n):
-    return (
-        g for g in (int(str(d) + str(n)) for d in range(10)) if is_prime(g))
+    return (g for g in (int(str(d) + str(n)) for d in range(10)) if is_prime(g))
 
 
 def grow_right(n):
-    return (
-        g for g in (int(str(n) + str(d)) for d in range(10)) if is_prime(g))
+    return (g for g in (int(str(n) + str(d)) for d in range(10)) if is_prime(g))
 
 
 def truncatable_primes():
@@ -29,10 +27,8 @@ def truncatable_primes():
     # soon as we don't have both left and right truncatable primes of length n,
     # we can stop looking.
     while len(left_truncatable) > 0 and len(right_truncatable) > 0:
-        left_truncatable = {
-            n for l in left_truncatable for n in grow_left(l)}
-        right_truncatable = {
-            n for r in right_truncatable for n in grow_right(r)}
+        left_truncatable = {n for l in left_truncatable for n in grow_left(l)}
+        right_truncatable = {n for r in right_truncatable for n in grow_right(r)}
         yield from right_truncatable & left_truncatable
 
 

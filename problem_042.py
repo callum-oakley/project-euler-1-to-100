@@ -2,7 +2,7 @@ import json
 
 
 def value(word):
-    return sum(ord(c) - ord('A') + 1 for c in word)
+    return sum(ord(c) - ord("A") + 1 for c in word)
 
 
 def filter_triangular(words):
@@ -15,7 +15,7 @@ def filter_triangular(words):
 
 
 def parse(file):
-    return json.loads('[{}]'.format(open(file).read().strip()))
+    return json.loads("[{}]".format(open(file).read().strip()))
 
 
-print(len(list(filter_triangular(parse('data/042')))))
+print(len(list(filter_triangular(parse("data/042")))))

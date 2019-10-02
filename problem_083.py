@@ -1,6 +1,7 @@
 def parse(file):
-    return [[int(w) for w in line.split(',')]
-            for line in open(file).read().splitlines()]
+    return [
+        [int(w) for w in line.split(",")] for line in open(file).read().splitlines()
+    ]
 
 
 # Dijkstra's algorithm specialised to the case of a grid with adjacent nodes
@@ -25,7 +26,7 @@ def dijkstra(n, weight, neighbors, target):
     return d(target)
 
 
-matrix = parse('data/083')
+matrix = parse("data/083")
 
 
 def neighbors(v):

@@ -50,7 +50,22 @@ def octagonal(n):
     return n * (3 * n - 2)
 
 
-print(sum(next(search({
-    precompute_fig(f)
-    for f in [
-        triangle, square, pentagonal, hexagonal, heptagonal, octagonal]}))))
+print(
+    sum(
+        next(
+            search(
+                {
+                    precompute_fig(f)
+                    for f in [
+                        triangle,
+                        square,
+                        pentagonal,
+                        hexagonal,
+                        heptagonal,
+                        octagonal,
+                    ]
+                }
+            )
+        )
+    )
+)

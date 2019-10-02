@@ -1,9 +1,9 @@
 def is_pandigital(s):
-    return len({d for d in s} - {'0'}) == 9
+    return len({d for d in s} - {"0"}) == 9
 
 
 def concat_product(n, m):
-    product = ''
+    product = ""
     for m in range(1, m + 1):
         product += str(n * m)
     return product

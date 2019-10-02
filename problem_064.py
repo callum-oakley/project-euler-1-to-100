@@ -20,6 +20,10 @@ def is_square(n):
     return round(sqrt(n)) ** 2 == n
 
 
-print(sum(1 for p in (
-    period(n) for n in (m for m in range(10001) if not is_square(m)))
-    if p % 2))
+print(
+    sum(
+        1
+        for p in (period(n) for n in (m for m in range(10001) if not is_square(m)))
+        if p % 2
+    )
+)

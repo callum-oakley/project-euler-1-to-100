@@ -2,8 +2,9 @@ from functools import lru_cache
 
 
 def parse(file):
-    return [[int(w) for w in line.split(',')]
-            for line in open(file).read().splitlines()]
+    return [
+        [int(w) for w in line.split(",")] for line in open(file).read().splitlines()
+    ]
 
 
 def in_range(x, y):
@@ -24,6 +25,6 @@ def min_path(x, y, previous_position=None):
     return matrix[y][x]
 
 
-matrix = parse('data/082')
+matrix = parse("data/082")
 n = len(matrix)
 print(min(min_path(n - 1, y) for y in range(n)))

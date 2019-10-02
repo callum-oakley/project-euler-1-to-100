@@ -38,6 +38,8 @@ def permutation(x, y):
     return sorted(str(x)) == sorted(str(y))
 
 
-x = min(((p, q) for p, q in prime_pairs() if permutation(phi(p, q), p * q)),
-        key=lambda x: x[0] * x[1] / phi(x[0], x[1]))
+x = min(
+    ((p, q) for p, q in prime_pairs() if permutation(phi(p, q), p * q)),
+    key=lambda x: x[0] * x[1] / phi(x[0], x[1]),
+)
 print(x[0] * x[1])

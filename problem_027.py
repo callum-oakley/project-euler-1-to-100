@@ -20,7 +20,9 @@ def consecutive_primes(a_b):
     return n
 
 
-a, b = max(((a, b) for a in range(-999, 1000) for b in range(-1000, 1001)),
-           key=consecutive_primes)
+a, b = max(
+    ((a, b) for a in range(-999, 1000) for b in range(-1000, 1001)),
+    key=consecutive_primes,
+)
 
 print(a * b)

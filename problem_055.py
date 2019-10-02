@@ -1,5 +1,5 @@
 def reverse(n):
-    return int(''.join(reversed(str(n))))
+    return int("".join(reversed(str(n))))
 
 
 def is_lychrel(n):
@@ -10,4 +10,4 @@ def is_lychrel(n):
     return True
 
 
-print(sum(1 for n in range(10**4) if is_lychrel(n)))
+print(sum(1 for n in range(10 ** 4) if is_lychrel(n)))

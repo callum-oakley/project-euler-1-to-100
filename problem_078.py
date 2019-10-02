@@ -11,9 +11,10 @@ def p(n):
     if n <= 1:
         return 1
     return sum(
-        (1 if k % 2 else -1) *
-        (p(n - k * (3 * k - 1) // 2) + p(n - k * (3 * k + 1) // 2))
-        for k in range(1, ceil((sqrt(1 + 24 * n) - 1) / 6) + 1))
+        (1 if k % 2 else -1)
+        * (p(n - k * (3 * k - 1) // 2) + p(n - k * (3 * k + 1) // 2))
+        for k in range(1, ceil((sqrt(1 + 24 * n) - 1) / 6) + 1)
+    )
 
 
 def inf_range(n=0, step=1):

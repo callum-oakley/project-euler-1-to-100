@@ -6,7 +6,7 @@ def permute(xs, n):
         return xs
     granularity = factorial(len(xs) - 1)
     i = n // granularity
-    return xs[i] + permute(xs[:i] + xs[i + 1:], n - i * granularity)
+    return xs[i] + permute(xs[:i] + xs[i + 1 :], n - i * granularity)
 
 
-print(permute('0123456789', 10 ** 6 - 1))
+print(permute("0123456789", 10 ** 6 - 1))

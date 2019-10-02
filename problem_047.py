@@ -24,10 +24,11 @@ def first_run_of(n):
     bound = 2
     runs = []
     while not runs:
-        runs = [run
-                for run in consecutive_runs(
-                    ints_by_no_of_prime_factors(n, bound))
-                if len(run) == n]
+        runs = [
+            run
+            for run in consecutive_runs(ints_by_no_of_prime_factors(n, bound))
+            if len(run) == n
+        ]
         bound *= 2
     return runs[0]
 

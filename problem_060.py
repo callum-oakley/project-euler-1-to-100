@@ -2,7 +2,7 @@ from functools import lru_cache
 from math import sqrt, log10
 from bisect import bisect_left
 
-LIMIT = 10**7
+LIMIT = 10 ** 7
 
 
 def prime_gen(n):
@@ -31,7 +31,7 @@ def is_prime(n):
             return True
         if n % p == 0:
             return False
-    raise ValueError('ran out of small primes!')
+    raise ValueError("ran out of small primes!")
 
 
 def concat(p, q):
@@ -53,6 +53,7 @@ candidates = (
     for d in range(c)
     if all(is_compatable(primes[x], primes[d]) for x in [a, b, c])
     for e in range(d)
-    if all(is_compatable(primes[x], primes[e]) for x in [a, b, c, d]))
+    if all(is_compatable(primes[x], primes[e]) for x in [a, b, c, d])
+)
 
 print(sum(next(candidates)))

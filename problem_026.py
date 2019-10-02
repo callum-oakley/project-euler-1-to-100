@@ -4,7 +4,7 @@ def reciprocal_cycle(denominator):
         digit, remainder = divmod(long_division[-1][1] * 10, denominator)
         for i in range(len(long_division)):
             if long_division[-1 - i] == (digit, remainder):
-                return [digit for digit, _ in long_division[-1 - i:]]
+                return [digit for digit, _ in long_division[-1 - i :]]
         long_division.append((digit, remainder))
 
 

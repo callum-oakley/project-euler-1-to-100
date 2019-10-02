@@ -14,9 +14,9 @@ def minimum_counter_example():
     while not composites - sums:
         primes = set(prime_gen(bound))
         composites = {n for n in range(2, bound) if n % 2 != 0} - primes
-        sums = {p + 2 * n ** 2
-                for p in primes
-                for n in range(floor(sqrt(bound / 2)) + 1)}
+        sums = {
+            p + 2 * n ** 2 for p in primes for n in range(floor(sqrt(bound / 2)) + 1)
+        }
         bound *= 2
     return min(composites - sums)
 

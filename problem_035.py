@@ -12,8 +12,7 @@ def rotations(s):
 
 def circular_primes(n):
     ps = set(primes(n))
-    return (p for p in ps
-            if all(int(r) in ps for r in rotations(str(p))))
+    return (p for p in ps if all(int(r) in ps for r in rotations(str(p))))
 
 
 print(len(list(circular_primes(10 ** 6))))
