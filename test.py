@@ -2,32 +2,32 @@ import json
 import os
 import re
 import sh
+import sys
 import time
 
 
 def test(file):
     n = file[8:11]
+    print("{}: ".format(n), end="")
     if n not in answers:
-        print("\nMISSING: no test for {}".format(file))
-        return
+        print("MISSING ANSWER".format(file))
+        sys.exit(1)
     start = time.time()
     result = sh.python3(file)
     elapsed = time.time() - start
     if result != answers[n] + "\n":
-        print(
-            "\nWRONG: expected {} but got {} ({})".format(
-                answers[n], result.strip(), file
-            )
-        )
+        print("WRONG expected {} but got {}".format(answers[n], result.strip()))
+        sys.exit(1)
     elif elapsed > 60:
-        print("\nSLOW: {} took {}s to run".format(file, round(elapsed)))
+        print("SLOW took {}s".format(round(elapsed)))
+        sys.exit(1)
     else:
-        print(".", end="", flush=True)
+        print("OK")
 
 
 answers = json.loads(open("answers.json").read())
 
 
-for f in os.listdir():
+for f in sorted(os.listdir()):
     if re.match(r"problem_\d{3}\.py", f):
         test(f)
