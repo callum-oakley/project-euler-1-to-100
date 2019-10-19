@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import json
 import os
 import re
@@ -27,7 +29,11 @@ def test(file):
 
 answers = json.loads(open("answers.json").read())
 
+if len(sys.argv[1:]) > 0:
+    test_files = sys.argv[1:]
+else:
+    test_files = os.listdir()
 
-for f in sorted(os.listdir()):
+for f in sorted(test_files):
     if re.match(r"problem_\d{3}\.py", f):
         test(f)
