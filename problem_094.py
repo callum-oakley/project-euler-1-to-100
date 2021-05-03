@@ -45,3 +45,4 @@ for a, b, c in almost_equilateral_triangles():
         break
     sum += a + b + c
 print(sum)
+# 518408346

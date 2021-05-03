@@ -17,3 +17,4 @@ def abundant_sums(bound):
 
 
 print(sum(set(range(1, 28124)) - abundant_sums(28124)))
+# 4179871

@@ -26,3 +26,4 @@ def pentagonal_differences():
 
 
 print(min(pentagonal_differences()))
+# 5482660

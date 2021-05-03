@@ -3,3 +3,4 @@ def square_difference(ns):
 
 
 print(square_difference(range(1, 101)))
+# 25164150

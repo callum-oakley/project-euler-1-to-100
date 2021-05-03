@@ -23,3 +23,4 @@ for n in range(1, LIMIT):
         loops[min(loop)] = len(loop)
 
 print(max(loops, key=lambda k: loops[k]))
+# 14316

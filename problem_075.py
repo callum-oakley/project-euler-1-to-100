@@ -31,3 +31,4 @@ for triple in pythagorean_triples(1500000):
     counts[perim] = 1 if perim not in counts else counts[perim] + 1
 
 print(sum(1 for count in counts.values() if count == 1))
+# 161667

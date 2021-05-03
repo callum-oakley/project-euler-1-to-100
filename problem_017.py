@@ -48,3 +48,4 @@ def say_all(n):
 
 
 print(len(say_all(1000)))
+# 21124

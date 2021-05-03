@@ -25,3 +25,4 @@ for a, b in digit_cancelling_fractions:
     product_a, product_b = product_a * a, product_b * b
 
 print(simplify((product_a, product_b))[1])
+# 100

@@ -22,3 +22,4 @@ def integer_right_triangles(max):
 
 
 print(len(integer_right_triangles(50)))
+# 14234

@@ -19,3 +19,4 @@ def chain_len(n):
 
 
 print(sum(1 for n in range(10 ** 6) if chain_len(n) == 60))
+# 402

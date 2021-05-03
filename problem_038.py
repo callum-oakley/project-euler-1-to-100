@@ -21,3 +21,4 @@ def pandigital_concat_products():
 
 
 print(max(pandigital_concat_products()))
+# 932718654

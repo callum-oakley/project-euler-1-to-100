@@ -39,3 +39,4 @@ def is_square(n):
 
 
 print(max((d for d in range(1001) if not is_square(d)), key=solve))
+# 661

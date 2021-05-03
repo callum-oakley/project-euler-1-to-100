@@ -3,3 +3,4 @@ def digital_sum(n):
 
 
 print(max(digital_sum(a ** b) for a in range(100) for b in range(100)))
+# 972

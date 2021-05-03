@@ -9,3 +9,4 @@ def diagonals(side_len):
 
 
 print(sum(n for n in diagonals(1001)))
+# 669171001

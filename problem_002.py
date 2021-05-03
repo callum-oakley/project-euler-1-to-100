@@ -6,3 +6,4 @@ def fibonacci(bound):
 
 
 print(sum(f for f in fibonacci(4 * 10 ** 6) if f % 2 == 0))
+# 4613732

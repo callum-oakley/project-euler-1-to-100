@@ -18,3 +18,4 @@ def tri_pen_hexs():
 
 
 print(next(n for n in tri_pen_hexs() if n > 40755))
+# 1533776805

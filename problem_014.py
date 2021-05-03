@@ -11,3 +11,4 @@ def collatz(n):
 
 
 print(max((n for n in range(1, 10 ** 6)), key=collatz))
+# 837799

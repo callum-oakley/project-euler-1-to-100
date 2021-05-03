@@ -9,3 +9,4 @@ def smallest_multiple(divisors):
 
 
 print(smallest_multiple(range(1, 21)))
+# 232792560

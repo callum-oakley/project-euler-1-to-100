@@ -13,3 +13,4 @@ def reciprocal_cycle_len(denominator):
 
 
 print(max(range(1, 1000), key=reciprocal_cycle_len))
+# 983

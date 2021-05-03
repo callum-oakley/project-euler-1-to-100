@@ -18,3 +18,4 @@ for d in chars_at(champernowne(), {10 ** i for i in range(7)}):
     product *= int(d)
 
 print(product)
+# 210

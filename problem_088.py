@@ -32,3 +32,4 @@ def minimal_product_sums(max_k):
 
 
 print(sum(minimal_product_sums(12000)))
+# 7587457

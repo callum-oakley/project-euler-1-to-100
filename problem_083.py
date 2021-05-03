@@ -1,6 +1,7 @@
 def parse(file):
     return [
-        [int(w) for w in line.split(",")] for line in open(file).read().splitlines()
+        [int(w) for w in line.split(",")]
+        for line in open(file).read().splitlines()
     ]
 
 
@@ -40,3 +41,4 @@ def weight(v):
 
 
 print(dijkstra(80, weight, neighbors, (79, 79)))
+# 425185

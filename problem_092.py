@@ -18,3 +18,4 @@ def destination(n):
 
 
 print(len([n for n in range(1, 10 ** 7) if destination(n) == 89]))
+# 8581146

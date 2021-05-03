@@ -13,6 +13,8 @@ def parse(file):
 
 print(
     max(
-        enumerate(parse("data/099"), start=1), key=lambda args: value(*args[1]),
+        enumerate(parse("data/099"), start=1),
+        key=lambda args: value(*args[1]),
     )[0]
 )
+# 709

@@ -3,3 +3,4 @@ def parse(file):
 
 
 print(str(sum(parse("data/013")))[:10])
+# 5537376230

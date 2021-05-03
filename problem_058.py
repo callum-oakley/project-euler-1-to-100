@@ -19,3 +19,4 @@ while prime / total >= 0.1:
     for k in range(1, 4):
         prime += 1 if is_prime(side_len ** 2 - k * (side_len - 1)) else 0
 print(side_len)
+# 26241

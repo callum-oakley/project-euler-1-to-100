@@ -28,8 +28,11 @@ def truncatable_primes():
     # we can stop looking.
     while len(left_truncatable) > 0 and len(right_truncatable) > 0:
         left_truncatable = {n for l in left_truncatable for n in grow_left(l)}
-        right_truncatable = {n for r in right_truncatable for n in grow_right(r)}
+        right_truncatable = {
+            n for r in right_truncatable for n in grow_right(r)
+        }
         yield from right_truncatable & left_truncatable
 
 
 print(sum(truncatable_primes()))
+# 748317

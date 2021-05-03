@@ -50,3 +50,4 @@ for a, b in anagrams(words):
                 max_anagramic_square = max(max_anagramic_square, square, b_sub)
 
 print(max_anagramic_square)
+# 18769

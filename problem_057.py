@@ -7,3 +7,4 @@ for n in range(1000):
     if len(str(approx.numerator)) > len(str(approx.denominator)):
         count += 1
 print(count)
+# 153

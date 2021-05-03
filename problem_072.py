@@ -16,3 +16,4 @@ def phi(n):
 
 
 print(sum(phi(n) for n in range(2, LIMIT)))
+# 303963552391

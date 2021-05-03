@@ -10,3 +10,4 @@ def decompositions(n, max_part=inf):
 
 
 print(decompositions(100) - 1)  # includes the trivial decomposition
+# 190569291

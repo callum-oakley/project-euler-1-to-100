@@ -32,3 +32,4 @@ for t in triples(1000):
 
 
 print(max(solution_counts, key=solution_counts.get))
+# 840

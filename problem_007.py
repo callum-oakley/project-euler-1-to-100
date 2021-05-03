@@ -19,3 +19,4 @@ def prime(n):
 
 
 print(prime(10000))
+# 104743

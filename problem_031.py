@@ -9,9 +9,11 @@ def coin_sums(pence, coins):
         coin_sum + [coin]
         for coin in coins
         for coin_sum in coin_sums(
-            pence - coin, frozenset(c for c in coins if c <= min(coin, pence - coin))
+            pence - coin,
+            frozenset(c for c in coins if c <= min(coin, pence - coin)),
         )
     ]
 
 
 print(len(coin_sums(200, frozenset({1, 2, 5, 10, 20, 50, 100, 200}))))
+# 73682

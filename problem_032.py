@@ -23,3 +23,4 @@ def pandigital_products():
 
 
 print(sum(set(pandigital_products())))
+# 45228

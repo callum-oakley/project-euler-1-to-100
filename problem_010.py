@@ -7,3 +7,4 @@ def primes(n):
 
 
 print(sum(primes(2 * 10 ** 6)))
+# 142913828922

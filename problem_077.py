@@ -36,3 +36,4 @@ def decompositions(n, max_part=inf):
 
 
 print(next(n for n in inf_range() if decompositions(n) - 1 > 5000))
+# 71

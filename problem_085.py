@@ -24,5 +24,8 @@ def search_space():
             yield (n, m, count)
 
 
-best_n, best_m, best_count = min(search_space(), key=lambda triplet: abs(triplet[2] - 2 * 10 ** 6))
+best_n, best_m, best_count = min(
+    search_space(), key=lambda triplet: abs(triplet[2] - 2 * 10 ** 6)
+)
 print(best_n * best_m)
+# 2772

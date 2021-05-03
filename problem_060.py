@@ -57,3 +57,4 @@ candidates = (
 )
 
 print(sum(next(candidates)))
+# 26033

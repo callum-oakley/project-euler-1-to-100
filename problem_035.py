@@ -16,3 +16,4 @@ def circular_primes(n):
 
 
 print(len(list(circular_primes(10 ** 6))))
+# 55

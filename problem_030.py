@@ -10,3 +10,4 @@ def digit_powers(power):
 
 
 print(sum(digit_powers(5)))
+# 443839

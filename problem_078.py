@@ -24,3 +24,4 @@ def inf_range(n=0, step=1):
 
 
 print(next(n for n in inf_range() if p(n) % 10 ** 6 == 0))
+# 55374

@@ -23,4 +23,11 @@ def is_square(n):
     return round(sqrt(n)) ** 2 == n
 
 
-print(sum(digital_sum(sqrt_expansion(n, 100)) for n in range(100) if not is_square(n)))
+print(
+    sum(
+        digital_sum(sqrt_expansion(n, 100))
+        for n in range(100)
+        if not is_square(n)
+    )
+)
+# 40886

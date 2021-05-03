@@ -16,3 +16,4 @@ def is_amicable(n):
 
 
 print(sum(n for n in range(2, 10000) if is_amicable(n)))
+# 31626

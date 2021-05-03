@@ -111,3 +111,4 @@ for line in open("data/054").read().splitlines():
     cards = [parse(f) for f in line.split()]
     wins += 1 if score(cards[:5]) > score(cards[5:]) else 0
 print(wins)
+# 376

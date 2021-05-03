@@ -3,7 +3,8 @@ from functools import lru_cache
 
 def parse(file):
     return [
-        [int(w) for w in line.split(",")] for line in open(file).read().splitlines()
+        [int(w) for w in line.split(",")]
+        for line in open(file).read().splitlines()
     ]
 
 
@@ -28,3 +29,4 @@ def min_path(x, y, previous_position=None):
 matrix = parse("data/082")
 n = len(matrix)
 print(min(min_path(n - 1, y) for y in range(n)))
+# 260324

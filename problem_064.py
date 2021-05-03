@@ -23,7 +23,10 @@ def is_square(n):
 print(
     sum(
         1
-        for p in (period(n) for n in (m for m in range(10001) if not is_square(m)))
+        for p in (
+            period(n) for n in (m for m in range(10001) if not is_square(m))
+        )
         if p % 2
     )
 )
+# 1322

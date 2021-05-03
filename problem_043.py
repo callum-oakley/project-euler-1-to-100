@@ -29,3 +29,4 @@ def substring_divisible_pandigitals():
 
 
 print(sum(int(s) for s in substring_divisible_pandigitals()))
+# 16695334890

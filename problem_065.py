@@ -20,3 +20,4 @@ def convergence(a, n):
 
 
 print(sum(int(d) for d in str(convergence(expansion(), 100).numerator)))
+# 272

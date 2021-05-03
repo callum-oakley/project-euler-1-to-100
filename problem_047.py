@@ -34,3 +34,4 @@ def first_run_of(n):
 
 
 print(first_run_of(4)[0])
+# 134043

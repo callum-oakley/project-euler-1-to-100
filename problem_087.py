@@ -32,3 +32,4 @@ for p2 in primes:
             expressible.add(f(p2, p3, p4))
 
 print(len(expressible))
+# 1097343

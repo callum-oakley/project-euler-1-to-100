@@ -16,7 +16,11 @@ def adjacent_products(grid):
 
 
 def parse(file):
-    return [[int(w) for w in line.split()] for line in open(file).read().splitlines()]
+    return [
+        [int(w) for w in line.split()]
+        for line in open(file).read().splitlines()
+    ]
 
 
 print(max(adjacent_products(parse("data/011"))))
+# 70600674

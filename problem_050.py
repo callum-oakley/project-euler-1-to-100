@@ -19,3 +19,4 @@ def longest_prime_sum(bound):
 
 
 print(sum(longest_prime_sum(10 ** 6)))
+# 997651

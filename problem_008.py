@@ -11,3 +11,4 @@ def parse(file):
 
 
 print(max(adjacent_products(parse("data/008"), 13)))
+# 23514624000

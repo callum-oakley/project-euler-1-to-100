@@ -7,3 +7,4 @@ def is_double_base_palindrome(n):
 
 
 print(sum(n for n in range(10 ** 6) if is_double_base_palindrome(n)))
+# 872187

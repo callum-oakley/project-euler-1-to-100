@@ -9,3 +9,4 @@ def special_triplet(n):
 
 a, b, c = special_triplet(1000)
 print(a * b * c)
+# 31875000

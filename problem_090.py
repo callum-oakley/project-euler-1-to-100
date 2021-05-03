@@ -32,3 +32,4 @@ for i in range(len(dice)):
             count += 1
 
 print(count)
+# 1217

@@ -15,3 +15,4 @@ def divisors(n):
 
 
 print(next(t for t in triangulars() if len(list(divisors(t))) > 500))
+# 76576500

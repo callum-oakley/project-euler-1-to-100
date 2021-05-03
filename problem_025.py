@@ -16,3 +16,4 @@ def naturals():
 
 
 print(next(i for i in naturals() if len(str(fibonacci(i))) >= 1000))
+# 4782

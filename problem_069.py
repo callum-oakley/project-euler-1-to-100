@@ -22,3 +22,4 @@ def very_prime_divisible(n):
 # p / (p - 1) is largest for small primes, so is maximized for n of the form
 #     2 * 3 * 5 * 7 * ...
 print(very_prime_divisible(10 ** 6))
+# 510510

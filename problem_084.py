@@ -43,4 +43,10 @@ for j in range(10 ** 6):
 
     visits[i] += 1
 
-print("".join(f"{n:02}" for n in sorted(range(40), key=lambda i: visits[i], reverse=True)[:3]))
+print(
+    "".join(
+        f"{n:02}"
+        for n in sorted(range(40), key=lambda i: visits[i], reverse=True)[:3]
+    )
+)
+# 101524

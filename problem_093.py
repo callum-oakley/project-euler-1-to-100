@@ -40,3 +40,4 @@ a, b, c, d = max(
 )
 
 print(f"{a}{b}{c}{d}")
+# 1258

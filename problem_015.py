@@ -11,3 +11,4 @@ def choose(n, k):
 
 
 print(choose(40, 20))
+# 137846528820

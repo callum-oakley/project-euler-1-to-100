@@ -19,3 +19,4 @@ def parse(file):
 
 
 print(len(list(filter_triangular(parse("data/042")))))
+# 162

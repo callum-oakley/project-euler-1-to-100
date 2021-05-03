@@ -16,3 +16,4 @@ def powerful():
 
 
 print(sum(1 for p in powerful()))
+# 49

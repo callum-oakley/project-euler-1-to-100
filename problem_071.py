@@ -8,3 +8,4 @@ print(
         if 0 < f < target
     ).numerator
 )
+# 428570

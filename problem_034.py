@@ -13,3 +13,4 @@ def digit_factorials():
 
 
 print(sum(digit_factorials()))
+# 40730

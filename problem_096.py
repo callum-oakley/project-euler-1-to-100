@@ -82,3 +82,4 @@ print(
         for solved in (s.solve() for s in parse("data/096"))
     )
 )
+# 24702

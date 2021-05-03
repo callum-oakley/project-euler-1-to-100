@@ -11,3 +11,4 @@ def is_lychrel(n):
 
 
 print(sum(1 for n in range(10 ** 4) if is_lychrel(n)))
+# 249

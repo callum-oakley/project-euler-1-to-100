@@ -43,3 +43,4 @@ x = min(
     key=lambda x: x[0] * x[1] / phi(x[0], x[1]),
 )
 print(x[0] * x[1])
+# 8319823

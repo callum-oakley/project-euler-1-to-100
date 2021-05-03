@@ -39,3 +39,4 @@ print(
         for line in open("data/089").read().splitlines()
     )
 )
+# 743
