@@ -28,26 +28,27 @@ def anagrams(words):
         for i in range(j):
             a, b = words[i], words[j]
             if sorted(a) == sorted(b):
-                yield (a, b)
+                yield a, b
 
 
-squares_by_length = {
-    i: [n ** 2 for n in range(ceil(sqrt(10 ** (i - 1))), ceil(sqrt(10 ** i)))]
-    for i in range(1, 10)
-}
+def main():
+    squares_by_length = {
+        i: [n ** 2 for n in range(ceil(sqrt(10 ** (i - 1))), ceil(sqrt(10 ** i)))]
+        for i in range(1, 10)
+    }
 
-words = [w.strip('"') for w in open("data/098").read().split(",")]
+    words = [w.strip('"') for w in open("data/098").read().split(",")]
 
-max_anagramic_square = 0
-for a, b in anagrams(words):
-    for square in squares_by_length[len(a)]:
-        sub = attempt_sub(a, square)
-        if sub:
-            b_sub = apply_sub(sub, b)
-            # implicitly checks that the substitution didn't start with a 0
-            # because b_sub would be a different length if it did
-            if b_sub in squares_by_length[len(a)]:
-                max_anagramic_square = max(max_anagramic_square, square, b_sub)
+    max_anagramic_square = 0
+    for a, b in anagrams(words):
+        for square in squares_by_length[len(a)]:
+            sub = attempt_sub(a, square)
+            if sub:
+                b_sub = apply_sub(sub, b)
+                # implicitly checks that the substitution didn't start with a 0
+                # because b_sub would be a different length if it did
+                if b_sub in squares_by_length[len(a)]:
+                    max_anagramic_square = max(max_anagramic_square, square, b_sub)
 
-print(max_anagramic_square)
-# 18769
+    return max_anagramic_square
+    # 18769

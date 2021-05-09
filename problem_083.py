@@ -1,10 +1,3 @@
-def parse(file):
-    return [
-        [int(w) for w in line.split(",")]
-        for line in open(file).read().splitlines()
-    ]
-
-
 # Dijkstra's algorithm specialised to the case of a grid with adjacent nodes
 # connected. Since we have weighted nodes rather than weighted edges, treat the
 # weight of an edge from A to B as the weight of B.
@@ -27,18 +20,22 @@ def dijkstra(n, weight, neighbors, target):
     return d(target)
 
 
-matrix = parse("data/083")
-
-
 def neighbors(v):
     x, y = v
     return ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1))
 
 
-def weight(v):
-    x, y = v
-    return matrix[y][x]
+def main():
+    matrix = [
+        [int(w) for w in line.split(",")]
+        for line in open("data/083").readlines()
+    ]
 
+    def weight(v):
+        x, y = v
+        return matrix[y][x]
 
-print(dijkstra(80, weight, neighbors, (79, 79)))
-# 425185
+    return dijkstra(
+        len(matrix), weight, neighbors, (len(matrix) - 1, len(matrix) - 1)
+    )
+    # 425185

@@ -1,10 +1,8 @@
-def triangulars():
-    n = 0
-    while True:
-        yield n * (n + 1) // 2
-        n += 1
+from functools import cache
+from itertools import count
 
 
+@cache
 def divisors(n):
     k = 2
     while k ** 2 <= n:
@@ -14,5 +12,7 @@ def divisors(n):
     return {1, n}
 
 
-print(next(t for t in triangulars() if len(list(divisors(t))) > 500))
-# 76576500
+def main():
+    triangulars = (n * (n + 1) // 2 for n in count())
+    return next(t for t in triangulars if sum(1 for _ in divisors(t)) > 500)
+    # 76576500

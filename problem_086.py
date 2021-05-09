@@ -24,20 +24,19 @@
 # manageable by ranging over p and x, and deriving w.
 
 from math import sqrt, floor
+from itertools import count
 
-count = 0
-x = 1
-while True:
-    p = x + 1
-    w_squared = p ** 2 - x ** 2
-    while w_squared <= (2 * x) ** 2:
-        w_squared = p ** 2 - x ** 2
-        w = round(sqrt(w_squared))
-        if w <= 2 * x and w ** 2 == w_squared:
-            count += floor(w / 2) - max(w - x - 1, 0)
-            if count > 10 ** 6:
-                print(x)
-                exit()
-        p += 1
-    x += 1
-# 1818
+
+def main():
+    total = 0
+    for x in count(1):
+        p = x + 1
+        while (w_squared := p ** 2 - x ** 2) <= (2 * x) ** 2:
+            w = round(sqrt(w_squared))
+            if w <= 2 * x and w ** 2 == w_squared:
+                total += floor(w / 2) - max(w - x - 1, 0)
+                if total > 10 ** 6:
+                    return x
+                    exit()
+            p += 1
+    # 1818

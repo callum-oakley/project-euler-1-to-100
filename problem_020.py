@@ -1,5 +1,8 @@
 from math import factorial
 
+from problem_016 import digit_sum
 
-print(sum(int(d) for d in str(factorial(100))))
-# 648
+
+def main():
+    return digit_sum(factorial(100))
+    # 648

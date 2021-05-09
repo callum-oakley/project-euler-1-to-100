@@ -1,9 +1,6 @@
-from math import factorial
+from problem_015 import choose
 
 
-def choose(n, r):
-    return factorial(n) // (factorial(r) * factorial(n - r))
-
-
-print(sum(1 for n in range(101) for r in range(n + 1) if choose(n, r) > 1e6))
-# 4075
+def main():
+    return sum(1 for n in range(101) for r in range(n + 1) if choose(n, r) > 10 ** 6)
+    # 4075

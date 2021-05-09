@@ -7,14 +7,13 @@ def value(base, exp):
 
 
 def parse(file):
-    for line in open(file).read().splitlines():
+    for line in open(file).readlines():
         yield (int(x) for x in line.split(","))
 
 
-print(
-    max(
+def main():
+    return max(
         enumerate(parse("data/099"), start=1),
         key=lambda args: value(*args[1]),
     )[0]
-)
-# 709
+    # 709

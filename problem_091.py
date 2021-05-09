@@ -21,5 +21,6 @@ def integer_right_triangles(max):
     ]
 
 
-print(len(integer_right_triangles(50)))
-# 14234
+def main():
+    return len(integer_right_triangles(50))
+    # 14234

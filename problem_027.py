@@ -1,15 +1,8 @@
-from math import ceil, sqrt
-from functools import lru_cache
+from problem_012 import divisors
 
 
-@lru_cache(maxsize=None)
 def is_prime(n):
-    if n <= 1:
-        return False
-    for divisor in range(2, ceil(sqrt(n)) + 1):
-        if n % divisor == 0:
-            return False
-    return True
+    return n >= 2 and divisors(n) == {1, n}
 
 
 def consecutive_primes(a_b):
@@ -20,10 +13,15 @@ def consecutive_primes(a_b):
     return n
 
 
-a, b = max(
-    ((a, b) for a in range(-999, 1000) for b in range(-1000, 1001)),
-    key=consecutive_primes,
-)
+def main():
+    max_n = None
+    for a in range(-999, 1000):
+        for b in range(-999, 1000):
+            n = 0
+            while is_prime(n ** 2 + a * n + b):
+                n += 1
+            if not max_n or n > max_n:
+                max_n, best_a, best_b = n, a, b
 
-print(a * b)
-# -59231
+    return best_a * best_b
+    # -59231

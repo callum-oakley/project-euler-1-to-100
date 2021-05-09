@@ -1,14 +1,14 @@
-def reverse(n):
-    return int("".join(reversed(str(n))))
+from problem_004 import is_palindrome
 
 
 def is_lychrel(n):
     for _ in range(49):
-        n += reverse(n)
-        if n == reverse(n):
+        n += int("".join(reversed(str(n))))
+        if is_palindrome(str(n)):
             return False
     return True
 
 
-print(sum(1 for n in range(10 ** 4) if is_lychrel(n)))
-# 249
+def main():
+    return sum(1 for n in range(10 ** 4) if is_lychrel(n))
+    # 249

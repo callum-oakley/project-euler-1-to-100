@@ -26,47 +26,22 @@ def precompute_fig(f):
     return frozenset(fig)
 
 
-def triangle(n):
-    return n * (n + 1) // 2
-
-
-def square(n):
-    return n ** 2
-
-
-def pentagonal(n):
-    return n * (3 * n - 1) // 2
-
-
-def hexagonal(n):
-    return n * (2 * n - 1)
-
-
-def heptagonal(n):
-    return n * (5 * n - 3) // 2
-
-
-def octagonal(n):
-    return n * (3 * n - 2)
-
-
-print(
-    sum(
+def main():
+    return sum(
         next(
             search(
                 {
                     precompute_fig(f)
                     for f in [
-                        triangle,
-                        square,
-                        pentagonal,
-                        hexagonal,
-                        heptagonal,
-                        octagonal,
+                        lambda n: n * (n + 1) // 2,
+                        lambda n: n ** 2,
+                        lambda n: n * (3 * n - 1) // 2,
+                        lambda n: n * (2 * n - 1),
+                        lambda n: n * (5 * n - 3) // 2,
+                        lambda n: n * (3 * n - 2),
                     ]
                 }
             )
         )
     )
-)
-# 28684
+    # 28684

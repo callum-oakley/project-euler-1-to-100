@@ -1,21 +1,21 @@
+from math import prod
+
+
 def champernowne():
     n = 0
     while True:
-        yield from str(n)
+        yield from (int(d) for d in str(n))
         n += 1
 
 
-def chars_at(s, indices):
-    for i, d in enumerate(s):
-        if i > max(indices):
+def nths(it, ns):
+    for i, x in enumerate(it):
+        if i > max(ns):
             break
-        if i in indices:
-            yield d
+        if i in ns:
+            yield x
 
 
-product = 1
-for d in chars_at(champernowne(), {10 ** i for i in range(7)}):
-    product *= int(d)
-
-print(product)
-# 210
+def main():
+    return prod(nths(champernowne(), {10 ** i for i in range(7)}))
+    # 210

@@ -1,14 +1,7 @@
-from functools import lru_cache
+from functools import cache
 
 
-def parse(file):
-    return [
-        [int(w) for w in line.split(",")]
-        for line in open(file).read().splitlines()
-    ]
-
-
-@lru_cache(maxsize=None)
+@cache
 def min_path(x, y):
     if x > 0 and y > 0:
         return matrix[y][x] + min(min_path(x - 1, y), min_path(x, y - 1))
@@ -20,7 +13,11 @@ def min_path(x, y):
         return matrix[y][x]
 
 
-matrix = parse("data/081")
-n = len(matrix)
-print(min_path(n - 1, n - 1))
-# 427337
+def main():
+    global matrix
+    matrix = [
+        [int(w) for w in line.split(",")]
+        for line in open("data/081").readlines()
+    ]
+    return min_path(len(matrix) - 1, len(matrix) - 1)
+    # 427337

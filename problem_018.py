@@ -15,11 +15,9 @@ def maximum_route(triangle):
 
 
 def parse(file):
-    return [
-        [int(w) for w in line.split()]
-        for line in open(file).read().splitlines()
-    ]
+    return [[int(w) for w in line.split()] for line in open(file).readlines()]
 
 
-print(maximum_route(parse("data/018")))
-# 1074
+def main():
+    return maximum_route(parse("data/018"))
+    # 1074

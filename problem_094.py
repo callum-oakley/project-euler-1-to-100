@@ -4,8 +4,8 @@
 #     (2 * k - 1, 2 * k - 1, 2 * k) or (2 * k + 1, 2 * k + 1, 2 * k)
 #
 # for integer k, and that the "height" of the triangle along the line of
-# symmetry is an integer. It follows then that solutions to the original problem
-# correspond exactly with integer solutions to
+# symmetry is an integer. It follows then that solutions to the original
+# problem correspond exactly with integer solutions to
 #
 #                        y ** 2 + k ** 2 = (2 * k +- 1) ** 2
 #     <=> (3 * k +- 2) ** 2 - 3 * k ** 2 = 1
@@ -17,8 +17,8 @@
 # Note that now not every integer solution x corresponds to an integer solution
 # k, but every integer solution k does correspond to an integer solution x. We
 # know how to calculate solutions to Pell's equation, so enumerating all
-# solutions to Pell's equation and doing the reverse transformation will give us
-# all solutions for k, and thus all almost equilateral triangles.
+# solutions to Pell's equation and doing the reverse transformation will give
+# us all solutions for k, and thus all almost equilateral triangles.
 
 
 # https://en.wikipedia.org/wiki/Pell%27s_equation#Solutions
@@ -39,10 +39,11 @@ def almost_equilateral_triangles():
             yield (2 * k + 1, 2 * k + 1, 2 * k)
 
 
-sum = 0
-for a, b, c in almost_equilateral_triangles():
-    if a + b + c > 10 ** 9:
-        break
-    sum += a + b + c
-print(sum)
-# 518408346
+def main():
+    sum = 0
+    for a, b, c in almost_equilateral_triangles():
+        if a + b + c > 10 ** 9:
+            break
+        sum += a + b + c
+    return sum
+    # 518408346

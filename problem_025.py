@@ -1,19 +1,9 @@
-from functools import lru_cache
+from problem_002 import fib
 
 
-@lru_cache(maxsize=None)
-def fibonacci(n):
-    if n <= 2:
-        return 1
-    return fibonacci(n - 1) + fibonacci(n - 2)
-
-
-def naturals():
-    n = 0
-    while True:
-        yield n
+def main():
+    n = 1
+    while len(str(fib(n))) < 1000:
         n += 1
-
-
-print(next(i for i in naturals() if len(str(fibonacci(i))) >= 1000))
-# 4782
+    return n
+    # 4782

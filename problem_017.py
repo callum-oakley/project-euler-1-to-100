@@ -40,12 +40,6 @@ def say(n):
     return say(10 * (n // 10)) + say(n % 10)
 
 
-def say_all(n):
-    all = ""
-    for words in (say(m + 1) for m in range(n)):
-        all += words
-    return all
-
-
-print(len(say_all(1000)))
-# 21124
+def main():
+    return sum(len(say(n)) for n in range(1, 1001))
+    # 21124

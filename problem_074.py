@@ -1,22 +1,20 @@
-from math import factorial
-from functools import lru_cache
+from functools import cache
+
+from problem_034 import factorial_digit_sum
 
 
-def factorial_digit_sum(n):
-    return sum(factorial(int(d)) for d in str(n))
-
-
-@lru_cache(maxsize=None)
+@cache
 def chain_len(n):
     if n in (871, 45361, 872, 45362):
         return 2
     if n in (169, 363601, 1454):
         return 3
-    m = factorial_digit_sum(n)
+    m = factorial_digit_sum(str(n))
     if m == n:
         return 1
     return 1 + chain_len(m)
 
 
-print(sum(1 for n in range(10 ** 6) if chain_len(n) == 60))
-# 402
+def main():
+    return sum(1 for n in range(10 ** 6) if chain_len(n) == 60)
+    # 402

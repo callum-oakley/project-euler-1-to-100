@@ -1,6 +1,6 @@
 from math import factorial
 
-
+# We could just use itertools.permutations for this, but this was fun to write.
 def permute(xs, n):
     if len(xs) == 0:
         return xs
@@ -9,5 +9,6 @@ def permute(xs, n):
     return xs[i] + permute(xs[:i] + xs[i + 1 :], n - i * granularity)
 
 
-print(permute("0123456789", 10 ** 6 - 1))
-# 2783915460
+def main():
+    return permute("0123456789", 10 ** 6 - 1)
+    # 2783915460

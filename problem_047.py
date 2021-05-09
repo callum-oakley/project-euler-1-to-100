@@ -1,3 +1,13 @@
+# Based on the Sieve of Eratosthenes
+def sieve_prime_factors(bound):
+    res = {i: set() for i in range(1, bound)}
+    for i in range(2, bound):
+        if not res[i]:  # so i is prime
+            for j in range(i, bound, i):
+                res[j].add(i)
+    return res
+
+
 def consecutive_runs(ns):
     run = []
     for n in ns:
@@ -9,29 +19,17 @@ def consecutive_runs(ns):
     yield run
 
 
-# Based on the Sieve of Eratosthenes
-def ints_by_no_of_prime_factors(n, bound):
-    prime_factors = {i: set() for i in range(2, bound)}
-    for i in range(2, bound):
-        if not prime_factors[i]:  # so i is prime
-            for j in range(2 * i, bound, i):
-                prime_factors[j].add(i)
-        if len(prime_factors[i]) == n:
-            yield i
-
-
-def first_run_of(n):
+def main():
     bound = 2
     runs = []
     while not runs:
         runs = [
             run
-            for run in consecutive_runs(ints_by_no_of_prime_factors(n, bound))
-            if len(run) == n
+            for run in consecutive_runs(
+                n for n, pfs in sieve_prime_factors(bound).items() if len(pfs) == 4
+            )
+            if len(run) == 4
         ]
         bound *= 2
-    return runs[0]
-
-
-print(first_run_of(4)[0])
-# 134043
+    return runs[0][0]
+    # 134043

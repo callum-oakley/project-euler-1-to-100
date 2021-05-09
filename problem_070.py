@@ -1,3 +1,5 @@
+from problem_007 import primes
+
 # We know by analysis that to minimise n / phi(n) we want n to be composed of
 # as few, large prime factors, as possible, but we also know that n cannot
 # itself be prime (because phi(n) would never come out to be a permutation). So
@@ -9,38 +11,32 @@
 LIMIT = 10 ** 7
 
 
-def prime_gen(n):
-    candidates = set(range(2, n))
-    for i in range(2, n):
-        if i in candidates:
-            yield i
-            candidates -= set(range(i, n, i))
-
-
-primes = list(prime_gen(LIMIT // 2))
-
-
 def phi(p, q):
     if p == q:
         return p * (p - 1)
     return (p - 1) * (q - 1)
 
 
-def prime_pairs():
-    for p in primes:
-        for q in primes:
+def prime_pairs(ps):
+    for p in ps:
+        for q in ps:
             if q > p or p * q >= LIMIT:
                 break
             yield p, q
 
 
-def permutation(x, y):
+def is_permutation(x, y):
     return sorted(str(x)) == sorted(str(y))
 
 
-x = min(
-    ((p, q) for p, q in prime_pairs() if permutation(phi(p, q), p * q)),
-    key=lambda x: x[0] * x[1] / phi(x[0], x[1]),
-)
-print(x[0] * x[1])
-# 8319823
+def main():
+    x = min(
+        (
+            (p, q)
+            for p, q in prime_pairs(list(primes(LIMIT // 2)))
+            if is_permutation(phi(p, q), p * q)
+        ),
+        key=lambda x: x[0] * x[1] / phi(x[0], x[1]),
+    )
+    return x[0] * x[1]
+    # 8319823

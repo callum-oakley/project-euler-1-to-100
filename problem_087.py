@@ -1,35 +1,28 @@
 from math import sqrt
 
-LIMIT = 5 * 10 ** 7
-
-
-def prime_gen(n):
-    candidates = set(range(2, n))
-    for i in range(2, n):
-        if i in candidates:
-            yield i
-            candidates -= set(range(i, n, i))
-
-
-primes = list(prime_gen(round(sqrt(LIMIT))))
+from problem_007 import primes
 
 
 def f(p2, p3, p4):
     return p2 ** 2 + p3 ** 3 + p4 ** 4
 
 
-expressible = set()
+def main():
+    LIMIT = 5 * 10 ** 7
 
-for p2 in primes:
-    if f(p2, 2, 2) >= LIMIT:
-        break
-    for p3 in primes:
-        if f(p2, p3, 2) >= LIMIT:
+    ps = list(primes(round(sqrt(LIMIT))))
+    expressible = set()
+
+    for p2 in ps:
+        if f(p2, 2, 2) >= LIMIT:
             break
-        for p4 in primes:
-            if f(p2, p3, p4) >= LIMIT:
+        for p3 in ps:
+            if f(p2, p3, 2) >= LIMIT:
                 break
-            expressible.add(f(p2, p3, p4))
+            for p4 in ps:
+                if f(p2, p3, p4) >= LIMIT:
+                    break
+                expressible.add(f(p2, p3, p4))
 
-print(len(expressible))
-# 1097343
+    return len(expressible)
+    # 1097343

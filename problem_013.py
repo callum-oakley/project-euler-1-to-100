@@ -1,6 +1,3 @@
-def parse(file):
-    return [int(l) for l in open(file).read().splitlines()]
-
-
-print(str(sum(parse("data/013")))[:10])
-# 5537376230
+def main():
+    return str(sum(int(l) for l in open("data/013").readlines()))[:10]
+    # 5537376230

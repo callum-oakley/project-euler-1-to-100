@@ -1,19 +1,13 @@
-LIMIT = 10 ** 6 + 1
+from math import prod
 
-prime_divisors = {n: set() for n in range(2, LIMIT)}
-for n in range(2, LIMIT):
-    if len(prime_divisors[n]) == 0:  # n is prime
-        k = 1
-        while k * n < LIMIT:
-            prime_divisors[k * n].add(n)
-            k += 1
+from problem_047 import sieve_prime_factors
 
 
-def phi(n):
-    for p in prime_divisors[n]:
-        n *= 1 - 1 / p
-    return round(n)
+def phi(n, ps):
+    return round(n * prod(1 - 1 / p for p in ps))
 
 
-print(sum(phi(n) for n in range(2, LIMIT)))
-# 303963552391
+def main():
+    pfs = sieve_prime_factors(10 ** 6 + 1)
+    return sum(phi(n, pfs[n]) for n in range(2, 10 ** 6 + 1))
+    # 303963552391

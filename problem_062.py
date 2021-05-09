@@ -1,12 +1,9 @@
-def inf_range(n=0, step=1):
-    while True:
-        yield n
-        n += step
+from itertools import count
 
 
 def search(n):
     seen = {}
-    for c in (m ** 3 for m in inf_range()):
+    for c in (m ** 3 for m in count()):
         digits = tuple(sorted(str(c)))
         if digits not in seen:
             seen[digits] = set()
@@ -15,5 +12,6 @@ def search(n):
             return min(seen[digits])
 
 
-print(search(5))
-# 127035954683
+def main():
+    return search(5)
+    # 127035954683

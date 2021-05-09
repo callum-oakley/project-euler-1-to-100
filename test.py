@@ -1,32 +1,38 @@
 import os
 import re
-import sh
 import sys
 import time
+import importlib
 
 
 def test(file):
-    n = file[8:11]
-    print(f"{n}: ", end="")
+    m = re.match(r"problem_\d{3}", file)
+    if not m:
+        return
+    module = m.group()
+    print(f"{module}: ", end="")
     start = time.time()
-    result = sh.python3(file)
-    elapsed = time.time() - start
-    answer = open(file).read().splitlines()[-1].lstrip("# ")
-    if result != answer + "\n":
-        print(f"WRONG expected {answer} but got {result.strip()}")
+    result = str(importlib.import_module(module).main())
+    elapsed = round(time.time() - start)
+    expected = open(file).readlines()[-1].strip("# \n")
+    if result != expected:
+        print(f"WRONG expected {expected} but got {result}")
         sys.exit(1)
-    elif elapsed > 60:
-        print("SLOW took {round(elapsed)}s")
+    elif elapsed >= 60:
+        print(f"SLOW {elapsed}s")
         sys.exit(1)
     else:
-        print("OK")
+        print(f"OK {elapsed}s")
 
 
-if len(sys.argv[1:]) > 0:
-    test_files = sys.argv[1:]
-else:
-    test_files = os.listdir()
-
-for f in sorted(test_files):
-    if re.match(r"problem_\d{3}\.py", f):
+def main():
+    if len(sys.argv[1:]) > 0:
+        test_files = [f"problem_{n}.py" for n in sys.argv[1:]]
+    else:
+        test_files = os.listdir()
+    for f in sorted(test_files):
         test(f)
+
+
+if __name__ == "__main__":
+    main()

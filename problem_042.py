@@ -1,22 +1,12 @@
-import json
+from itertools import takewhile, count
 
 
-def value(word):
-    return sum(ord(c) - ord("A") + 1 for c in word)
-
-
-def filter_triangular(words):
-    triangulars = {0}
-    for word in words:
-        while max(triangulars) < value(word):
-            triangulars.add(max(triangulars) + len(triangulars))
-        if value(word) in triangulars:
-            yield word
-
-
-def parse(file):
-    return json.loads("[{}]".format(open(file).read().strip()))
-
-
-print(len(list(filter_triangular(parse("data/042")))))
-# 162
+def main():
+    word_values = [
+        sum(ord(c) - ord("A") + 1 for c in word)
+        for word in eval(open("data/042").read())
+    ]
+    triangulars = (n * (n + 1) // 2 for n in count())
+    ts = set(takewhile(lambda t: t < max(word_values), triangulars))
+    return sum(1 for v in word_values if v in ts)
+    # 162

@@ -13,16 +13,12 @@ def rings(partial, unused):
 
 def magic(ring):
     return (
-        len(
-            set(
-                sum(ring[3 * j + i] for i in range(3))
-                for j in range(len(ring) // 3)
-            )
-        )
+        len(set(sum(ring[3 * j + i] for i in range(3)) for j in range(len(ring) // 3)))
         <= 1
     )
 
 
-rs = ("".join(str(d) for d in r) for r in rings([], set(range(1, 11))))
-print(max(r for r in rs if len(r) == 16))
-# 6531031914842725
+def main():
+    rs = ("".join(str(d) for d in r) for r in rings([], set(range(1, 11))))
+    return max(r for r in rs if len(r) == 16)
+    # 6531031914842725

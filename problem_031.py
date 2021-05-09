@@ -1,7 +1,7 @@
-from functools import lru_cache
+from functools import cache
 
 
-@lru_cache(maxsize=None)
+@cache
 def coin_sums(pence, coins):
     if pence == 0:
         return [[]]
@@ -15,5 +15,6 @@ def coin_sums(pence, coins):
     ]
 
 
-print(len(coin_sums(200, frozenset({1, 2, 5, 10, 20, 50, 100, 200}))))
-# 73682
+def main():
+    return len(coin_sums(200, frozenset({1, 2, 5, 10, 20, 50, 100, 200})))
+    # 73682

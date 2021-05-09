@@ -1,16 +1,20 @@
 from math import factorial
+from functools import cache
 
 
-def digit_factorials():
-    length = 2
+@cache
+def factorial_digit_sum(s):
+    if len(s) == 1:
+        return factorial(int(s))
+    return factorial_digit_sum(s[::2]) + factorial_digit_sum(s[1::2])
+
+
+def main():
+    total, length = 0, 2
     while length * factorial(9) >= 10 ** (length - 1):
-        yield from (
-            n
-            for n in range(10 ** (length - 1), 10 ** length)
-            if sum(factorial(int(d)) for d in str(n)) == n
-        )
+        for n in range(10 ** (length - 1), 10 ** length):
+            if factorial_digit_sum(str(n)) == n:
+                total += n
         length += 1
-
-
-print(sum(digit_factorials()))
-# 40730
+    return total
+    # 40730

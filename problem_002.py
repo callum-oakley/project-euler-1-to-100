@@ -1,9 +1,20 @@
-def fibonacci(bound):
-    a, b = 0, 1
-    while b <= bound:
-        yield b
-        a, b = b, a + b
+from functools import cache
 
 
-print(sum(f for f in fibonacci(4 * 10 ** 6) if f % 2 == 0))
-# 4613732
+@cache
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+
+def main():
+    total = 0
+    n = 1
+    while (f := fib(n)) <= 4 * 10 ** 6:
+        if f % 2 == 0:
+            total += f
+        n += 1
+
+    return total
+    # 4613732

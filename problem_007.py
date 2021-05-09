@@ -1,6 +1,3 @@
-from math import ceil, log
-
-
 def primes(n):
     candidates = set(range(2, n))
     for i in range(2, n):
@@ -9,14 +6,12 @@ def primes(n):
             candidates -= set(range(i, n, i))
 
 
-def prime(n):
-    # https://en.wikipedia.org/wiki/Prime_number_theorem#Approximations_for_the_nth_prime_number
-    if n < 5:
-        bound = 12
-    else:
-        bound = ceil((n + 1) * (log(n + 1) + log(log(n + 1))))
-    return list(primes(bound))[n]
+def nth(it, n):
+    for _ in range(n):
+        next(it)
+    return next(it)
 
 
-print(prime(10000))
-# 104743
+def main():
+    return nth(primes(10 ** 6), 10000)
+    # 104743

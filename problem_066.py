@@ -1,11 +1,8 @@
 from fractions import Fraction
 from math import sqrt, gcd
+from itertools import count
 
-
-def inf_range(n=0, step=1):
-    while True:
-        yield n
-        n += step
+from problem_064 import is_square
 
 
 def expansion(n):
@@ -28,15 +25,12 @@ def convergence(a, i):
 
 # https://en.wikipedia.org/wiki/Pell's_equation#Fundamental_solution_via_continued_fractions
 def solve(d):
-    for i in inf_range(1):
+    for i in count(1):
         c = convergence(expansion(d), i)
         if c.numerator ** 2 - d * c.denominator ** 2 == 1:
             return c.numerator
 
 
-def is_square(n):
-    return round(sqrt(n)) ** 2 == n
-
-
-print(max((d for d in range(1001) if not is_square(d)), key=solve))
-# 661
+def main():
+    return max((d for d in range(1001) if not is_square(d)), key=solve)
+    # 661

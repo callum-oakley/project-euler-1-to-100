@@ -1,7 +1,7 @@
-from functools import lru_cache
+from functools import cache
 
 
-@lru_cache(maxsize=None)
+@cache
 def factorisations(n):
     res = [[n]]
     d = 2
@@ -20,8 +20,8 @@ def possible_k(n):
 
 # For a given k, 2 * k is always a product-sum number, since
 # 1 + ... + 1 + 2 + k = k - 2 + 2 + k = 2 * k = 1 * ... * 1 * 2 * k
-# so the minimal product sum will be at most 2 * k. In our search below then, we
-# need not consider n > 2 * max_k.
+# so the minimal product sum will be at most 2 * k. In our search below then,
+# we need not consider n > 2 * max_k.
 def minimal_product_sums(max_k):
     minimal_product_sums = {}
     for n in range(2, max_k * 2 + 1):
@@ -31,5 +31,6 @@ def minimal_product_sums(max_k):
     return set(minimal_product_sums.values())
 
 
-print(sum(minimal_product_sums(12000)))
-# 7587457
+def main():
+    return sum(minimal_product_sums(12000))
+    # 7587457

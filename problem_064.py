@@ -1,6 +1,10 @@
 from math import sqrt, gcd
 
 
+def is_square(n):
+    return round(sqrt(n)) ** 2 == n
+
+
 def period(n):
     # x, y, z represent a number in the form (x*sqrt(n) + y) / z
     x, y, z, seen, i = 1, 0, 1, {}, 0
@@ -16,17 +20,10 @@ def period(n):
         i += 1
 
 
-def is_square(n):
-    return round(sqrt(n)) ** 2 == n
-
-
-print(
-    sum(
+def main():
+    return sum(
         1
-        for p in (
-            period(n) for n in (m for m in range(10001) if not is_square(m))
-        )
+        for p in (period(n) for n in (m for m in range(10001) if not is_square(m)))
         if p % 2
     )
-)
-# 1322
+    # 1322

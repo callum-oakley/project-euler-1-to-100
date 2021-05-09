@@ -8,9 +8,6 @@ def reciprocal_cycle(denominator):
         long_division.append((digit, remainder))
 
 
-def reciprocal_cycle_len(denominator):
-    return len(reciprocal_cycle(denominator))
-
-
-print(max(range(1, 1000), key=reciprocal_cycle_len))
-# 983
+def main():
+    return max(range(1, 1000), key=lambda d: len(reciprocal_cycle(d)))
+    # 983

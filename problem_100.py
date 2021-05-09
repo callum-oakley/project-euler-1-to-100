@@ -18,5 +18,6 @@ def search():
             return b
 
 
-print(search())
-# 756872327473
+def main():
+    return search()
+    # 756872327473

@@ -1,17 +1,5 @@
-from math import ceil, sqrt
-
-
-def is_prime(n):
-    if n <= 1:
-        return False
-    for divisor in range(2, ceil(sqrt(n)) + 1):
-        if n % divisor == 0:
-            return False
-    return True
-
-
-def is_pandigital(s):
-    return {int(d) for d in s} == set(range(1, len(s) + 1))
+from problem_027 import is_prime
+from problem_032 import is_pandigital
 
 
 def largest_pandigital_prime():
@@ -22,5 +10,6 @@ def largest_pandigital_prime():
             return n
 
 
-print(largest_pandigital_prime())
-# 7652413
+def main():
+    return largest_pandigital_prime()
+    # 7652413

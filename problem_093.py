@@ -1,4 +1,4 @@
-from itertools import permutations
+from itertools import permutations, count
 
 
 def try_eval(s):
@@ -22,22 +22,20 @@ def possibilities(abcd):
 
 def first_missing(ns):
     ns = set(ns)
-    n = 1
-    while n in ns:
-        n += 1
-    return n
+    return next(n for n in count(1) if n not in ns)
 
 
-a, b, c, d = max(
-    (
-        (a, b, c, d)
-        for d in range(4, 10)
-        for c in range(3, d)
-        for b in range(2, c)
-        for a in range(1, b)
-    ),
-    key=lambda abcd: first_missing(possibilities(abcd)),
-)
+def main():
+    a, b, c, d = max(
+        (
+            (a, b, c, d)
+            for d in range(4, 10)
+            for c in range(3, d)
+            for b in range(2, c)
+            for a in range(1, b)
+        ),
+        key=lambda abcd: first_missing(possibilities(abcd)),
+    )
 
-print(f"{a}{b}{c}{d}")
-# 1258
+    return f"{a}{b}{c}{d}"
+    # 1258

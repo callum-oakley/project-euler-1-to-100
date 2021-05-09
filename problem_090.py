@@ -23,13 +23,14 @@ def valid(dice1, dice2):
     )
 
 
-dice = [{6 if f == 9 else f for f in d} for d in subsets(set(range(10)), 6)]
+def main():
+    dice = [{6 if f == 9 else f for f in d} for d in subsets(set(range(10)), 6)]
 
-count = 0
-for i in range(len(dice)):
-    for j in range(i + 1):
-        if valid(dice[i], dice[j]):
-            count += 1
+    count = 0
+    for i in range(len(dice)):
+        for j in range(i + 1):
+            if valid(dice[i], dice[j]):
+                count += 1
 
-print(count)
-# 1217
+    return count
+    # 1217

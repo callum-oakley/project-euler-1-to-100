@@ -1,7 +1,7 @@
-from functools import lru_cache
+from functools import cache
 
 
-@lru_cache(maxsize=None)
+@cache
 def collatz(n):
     if n == 1:
         return 1
@@ -10,5 +10,6 @@ def collatz(n):
     return 1 + collatz(3 * n + 1)
 
 
-print(max((n for n in range(1, 10 ** 6)), key=collatz))
-# 837799
+def main():
+    return max((n for n in range(1, 10 ** 6)), key=collatz)
+    # 837799

@@ -1,5 +1,4 @@
-def is_pandigital(s):
-    return len({d for d in s} - {"0"}) == 9
+from problem_032 import is_pandigital
 
 
 def concat_product(n, m):
@@ -13,12 +12,13 @@ def pandigital_concat_products():
     n = 1
     while len(concat_product(n, 2)) <= 9:
         m = 2
-        while len(concat_product(n, m)) <= 9:
-            if is_pandigital(concat_product(n, m)):
-                yield concat_product(n, m)
+        while len(p := concat_product(n, m)) <= 9:
+            if is_pandigital(p):
+                yield p
             m += 1
         n += 1
 
 
-print(max(pandigital_concat_products()))
-# 932718654
+def main():
+    return max(pandigital_concat_products())
+    # 932718654

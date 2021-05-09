@@ -28,5 +28,6 @@ def substring_divisible_pandigitals():
             head -= 1
 
 
-print(sum(int(s) for s in substring_divisible_pandigitals()))
-# 16695334890
+def main():
+    return sum(int(s) for s in substring_divisible_pandigitals())
+    # 16695334890

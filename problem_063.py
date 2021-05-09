@@ -1,6 +1,8 @@
+from itertools import count
+
+
 def powerful():
-    n = 1
-    while True:
+    for n in count():
         # log10(x) < len(x) for all x, so
         # len(m**n) = n => log10(m**n) < n => log10(m) < 1 => m < 10
         # Furthermore, if 9**n is not long enough for some n, then it won't be
@@ -12,8 +14,8 @@ def powerful():
                 break
             elif len(str(m ** n)) == n:
                 yield m ** n
-        n += 1
 
 
-print(sum(1 for p in powerful()))
-# 49
+def main():
+    return sum(1 for p in powerful())
+    # 49

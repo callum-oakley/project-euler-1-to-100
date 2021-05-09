@@ -33,10 +33,9 @@ def encode(n):
     return roman
 
 
-print(
-    sum(
-        len(line) - len(encode(decode(line)))
-        for line in open("data/089").read().splitlines()
+def main():
+    return sum(
+        len(line.strip()) - len(encode(decode(line.strip())))
+        for line in open("data/089").readlines()
     )
-)
-# 743
+    # 743

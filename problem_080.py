@@ -1,4 +1,5 @@
-from math import sqrt
+from problem_016 import digit_sum
+from problem_064 import is_square
 
 
 def sqrt_expansion(n, length):
@@ -12,22 +13,11 @@ def sqrt_expansion(n, length):
             lower = mid
         elif mid ** 2 > n_scaled:
             upper = mid
-    return str(mid)
+    return mid
 
 
-def digital_sum(n):
-    return sum(int(d) for d in n)
-
-
-def is_square(n):
-    return round(sqrt(n)) ** 2 == n
-
-
-print(
-    sum(
-        digital_sum(sqrt_expansion(n, 100))
-        for n in range(100)
-        if not is_square(n)
+def main():
+    return sum(
+        digit_sum(sqrt_expansion(n, 100)) for n in range(100) if not is_square(n)
     )
-)
-# 40886
+    # 40886

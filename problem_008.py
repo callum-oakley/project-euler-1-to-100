@@ -1,14 +1,12 @@
-def adjacent_products(digits, n):
-    for i in range(len(digits) - n + 1):
-        product = 1
-        for d in digits[i : i + n]:
-            product *= int(d)
-        yield product
+from math import prod
 
 
-def parse(file):
-    return open(file).read().replace("\n", "")
+def windows(n, s):
+    for i in range(len(s) - n + 1):
+        yield s[i : i + n]
 
 
-print(max(adjacent_products(parse("data/008"), 13)))
-# 23514624000
+def main():
+    digits = open("data/008").read().replace("\n", "")
+    return max(prod(int(d) for d in w) for w in windows(13, digits))
+    # 23514624000

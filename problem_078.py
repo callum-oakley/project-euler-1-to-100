@@ -1,10 +1,11 @@
 from math import sqrt, ceil
-from functools import lru_cache
+from functools import cache
+from itertools import count
 
 
 # from http://mathworld.wolfram.com/PartitionFunctionP.html with a restriction
 # over the range to exclude a lot of the zero terms
-@lru_cache(maxsize=None)
+@cache
 def p(n):
     if n < 0:
         return 0
@@ -17,11 +18,6 @@ def p(n):
     )
 
 
-def inf_range(n=0, step=1):
-    while True:
-        yield n
-        n += step
-
-
-print(next(n for n in inf_range() if p(n) % 10 ** 6 == 0))
-# 55374
+def main():
+    return next(n for n in count() if p(n) % 10 ** 6 == 0)
+    # 55374

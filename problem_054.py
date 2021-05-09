@@ -106,9 +106,10 @@ def parse(f):
     return "{:02}{}".format(value, f[1])
 
 
-wins = 0
-for line in open("data/054").read().splitlines():
-    cards = [parse(f) for f in line.split()]
-    wins += 1 if score(cards[:5]) > score(cards[5:]) else 0
-print(wins)
-# 376
+def main():
+    wins = 0
+    for line in open("data/054").readlines():
+        cards = [parse(f) for f in line.split()]
+        wins += 1 if score(cards[:5]) > score(cards[5:]) else 0
+    return wins
+    # 376

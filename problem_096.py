@@ -1,7 +1,7 @@
-from functools import lru_cache
+from functools import cache
 
 
-@lru_cache(maxsize=None)
+@cache
 def relevant(pos):
     x, y = pos
     return (
@@ -67,19 +67,18 @@ class Sudoku:
 
 
 def parse(file):
-    lines = open(file).read().splitlines()
+    lines = open(file).readlines()
     return [
-        Sudoku(int(d) for line in lines[i : i + 9] for d in line)
+        Sudoku(int(d) for line in lines[i : i + 9] for d in line.strip())
         for i in range(1, len(lines), 10)
     ]
 
 
-print(
-    sum(
+def main():
+    return sum(
         100 * solved.grid[(0, 0)]
         + 10 * solved.grid[(1, 0)]
         + solved.grid[(2, 0)]
         for solved in (s.solve() for s in parse("data/096"))
     )
-)
-# 24702
+    # 24702

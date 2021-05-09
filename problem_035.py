@@ -1,19 +1,15 @@
-def primes(n):
-    candidates = set(range(2, n))
-    for i in range(2, n):
-        if i in candidates:
-            yield i
-            candidates -= set(range(i, n, i))
+from problem_007 import primes
 
 
 def rotations(s):
     return (s[i:] + s[:i] for i in range(1, len(s)))
 
 
-def circular_primes(n):
-    ps = set(primes(n))
-    return (p for p in ps if all(int(r) in ps for r in rotations(str(p))))
-
-
-print(len(list(circular_primes(10 ** 6))))
-# 55
+def main():
+    ps = set(primes(10 ** 6))
+    count = 0
+    for p in ps:
+        if all(int(r) in ps for r in rotations(str(p))):
+            count += 1
+    return count
+    # 55

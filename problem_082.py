@@ -1,22 +1,15 @@
-from functools import lru_cache
-
-
-def parse(file):
-    return [
-        [int(w) for w in line.split(",")]
-        for line in open(file).read().splitlines()
-    ]
+from functools import cache
 
 
 def in_range(x, y):
-    return 0 <= x <= n - 1 and 0 <= y <= n - 1
+    return 0 <= x <= len(matrix) - 1 and 0 <= y <= len(matrix) - 1
 
 
-@lru_cache(maxsize=None)
+@cache
 def min_path(x, y, previous_position=None):
     paths_to_here = [
         min_path(xp, yp, previous_position=(x, y))
-        for (xp, yp) in [(x - 1, y), (x, y - 1), (x, y + 1)]
+        for xp, yp in [(x - 1, y), (x, y - 1), (x, y + 1)]
         if (xp, yp) != previous_position and in_range(xp, yp)
     ]
 
@@ -26,7 +19,11 @@ def min_path(x, y, previous_position=None):
     return matrix[y][x]
 
 
-matrix = parse("data/082")
-n = len(matrix)
-print(min(min_path(n - 1, y) for y in range(n)))
-# 260324
+def main():
+    global matrix
+    matrix = [
+        [int(w) for w in line.split(",")]
+        for line in open("data/082").readlines()
+    ]
+    return min(min_path(len(matrix) - 1, y) for y in range(len(matrix)))
+    # 260324

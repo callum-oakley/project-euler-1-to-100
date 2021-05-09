@@ -1,14 +1,12 @@
-def inf_range(n=0, step=1):
-    while True:
-        yield n
-        n += step
+from itertools import count
 
 
 def search(multiples):
-    for x in inf_range(1):
+    for x in count(1):
         if len({tuple(sorted(str(k * x))) for k in multiples}) == 1:
             return x
 
 
-print(search([1, 2, 3, 4, 5, 6]))
-# 142857
+def main():
+    return search([1, 2, 3, 4, 5, 6])
+    # 142857

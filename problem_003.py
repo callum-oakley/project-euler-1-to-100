@@ -7,5 +7,6 @@ def prime_factors(n):
         divisor += 1
 
 
-print(max(prime_factors(600851475143)))
-# 6857
+def main():
+    return max(prime_factors(600851475143))
+    # 6857
